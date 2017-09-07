@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+ext {
+    retrofit_version="2.3.0"
+    okhttp_version="3.1.2"
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+
+
+    // RETRO
+    compile "com.squareup.retrofit2:retrofit:$retrofit_version"
+    compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
+
+    // OK
+    compile "com.squareup.okhttp3:okhttp:$okhttp_version"
+    compile "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
