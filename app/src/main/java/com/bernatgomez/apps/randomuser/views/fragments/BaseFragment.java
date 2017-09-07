@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser.views;
+package com.bernatgomez.apps.randomuser.views.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,6 +26,14 @@ public class BaseFragment extends Fragment {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // LIFECYCLE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        this.injectDependencies();
+    }
 
     @Nullable
     @Override
@@ -59,6 +67,8 @@ public class BaseFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        this.fetchData();
+
         Logger.logMsg(TAG, "onStart()");
 
     }
@@ -89,6 +99,10 @@ public class BaseFragment extends Fragment {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    protected void injectDependencies() {}
+
+    protected void fetchData() {}
 
     protected void bindViews(View v) {
         ButterKnife.bind(this, v);

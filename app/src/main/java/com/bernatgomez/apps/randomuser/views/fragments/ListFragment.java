@@ -1,11 +1,10 @@
-package com.bernatgomez.apps.randomuser.views;
+package com.bernatgomez.apps.randomuser.views.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
-import com.bernatgomez.apps.randomuser.utils.Logger;
 
 import butterknife.BindView;
 
@@ -28,5 +27,15 @@ public class ListFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
 
         this.layoutId = R.layout.fragment_list;
+    }
+
+    @Override
+    protected void fetchData() {
+        super.fetchData();
+    }
+
+    @Override
+    protected void injectDependencies() {
+        super.injectDependencies();
     }
 }
