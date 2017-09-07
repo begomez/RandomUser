@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser.dependencies;
+package com.bernatgomez.apps.randomuser.dependencies.modules;
 
 
 import com.bernatgomez.apps.randomuser.BuildConfig;
