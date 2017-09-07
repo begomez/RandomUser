@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.bernatgomez.apps.randomuser.views.ListActivity">
+    tools:context="com.bernatgomez.apps.randomuser.views.activs.ListActivity">
 
     <FrameLayout
         android:id="@+id/main_content"
