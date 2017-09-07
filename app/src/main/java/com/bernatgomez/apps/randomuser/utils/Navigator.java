@@ -1,12 +1,10 @@
 package com.bernatgomez.apps.randomuser.utils;
 
-import android.app.Activity;
-import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.bernatgomez.apps.randomuser.views.BaseActivity;
-import com.bernatgomez.apps.randomuser.views.BaseFragment;
+import com.bernatgomez.apps.randomuser.views.activs.BaseActivity;
+import com.bernatgomez.apps.randomuser.views.fragments.BaseFragment;
 
 /**
  * Created by bernatgomez on 08/09/2017.
