@@ -40,4 +40,8 @@ public class BasePresenter<T extends IMVPBaseView> {
     public void detachView() {
         this.view = null;
     }
+
+    public T getView() {
+        return this.view;
+    }
 }

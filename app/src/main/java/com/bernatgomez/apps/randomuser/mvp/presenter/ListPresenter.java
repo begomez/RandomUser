@@ -11,4 +11,10 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
     public ListPresenter(Bus bus) {
         super(bus);
     }
+
+    public void getRandomUsers() {
+        this.getView().showLoading();
+
+
+    }
 }

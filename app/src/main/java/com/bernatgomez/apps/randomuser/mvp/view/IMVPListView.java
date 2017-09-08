@@ -5,5 +5,5 @@ package com.bernatgomez.apps.randomuser.mvp.view;
  */
 
 public interface IMVPListView extends IMVPBaseView {
-    public void getRandomUsers();
+    public void onRandomUsersReceived();
 }
