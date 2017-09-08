@@ -25,6 +25,8 @@ public class BasePresenter<T extends IMVPBaseView> {
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    protected void initUsecase() {}
+
     public void registerInBus() {
         this.bus.register(this);
     }

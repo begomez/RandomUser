@@ -11,6 +11,7 @@ import com.bernatgomez.apps.randomuser.dependencies.components.DaggerListCompone
 import com.bernatgomez.apps.randomuser.dependencies.modules.ListModule;
 import com.bernatgomez.apps.randomuser.mvp.presenter.ListPresenter;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
+import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 
 import javax.inject.Inject;
 
@@ -76,7 +77,6 @@ public class ListFragment extends BaseFragment implements IMVPListView {
         super.injectDependencies();
 
         //TODO: provide app component from application
-        //DaggerListComponent.builder().listModule(new ListModule()).appComponent(DaggerAppComponent.create()).build().inject(this);
         DaggerListComponent.builder().appComponent(DaggerAppComponent.create()).listModule(new ListModule()).build().inject(this);
     }
 
@@ -96,6 +96,13 @@ public class ListFragment extends BaseFragment implements IMVPListView {
 
     @Override
     public void onRandomUsersReceived() {
+        AndroidLogger.logMsg(TAG, "succcess");
+        //TODO
+    }
+
+    @Override
+    public void onRandomUsersError() {
+        AndroidLogger.logError(TAG, "error", null);
         //TODO
     }
 }

@@ -1,4 +1,5 @@
 package com.bernatgomez.apps.randomuser;
 
-public class IListUsecase {
+public interface IListUsecase {
+    public void performAction();
 }

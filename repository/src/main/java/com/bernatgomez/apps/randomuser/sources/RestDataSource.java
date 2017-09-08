@@ -2,6 +2,7 @@ package com.bernatgomez.apps.randomuser.sources;
 
 import com.bernatgomez.apps.randomuser.api.IRandomUserAPI;
 import com.bernatgomez.apps.randomuser.forms.GetUsersForm;
+import com.bernatgomez.apps.randomuser.models.DataError;
 import com.bernatgomez.apps.randomuser.models.DataUser;
 import com.bernatgomez.apps.randomuser.utils.JavaLogger;
 import com.squareup.otto.Bus;
@@ -21,7 +22,7 @@ public class RestDataSource implements IDataSource {
 
     private static final String TAG = RestDataSource.class.getSimpleName();
 
-    protected Bus bus;
+    protected final Bus bus;
     protected Retrofit gateway;
     protected IRandomUserAPI api;
 
@@ -43,6 +44,7 @@ public class RestDataSource implements IDataSource {
 
     @Override
     public void getUsers(GetUsersForm form) {
+
         Call<List<DataUser>> call = this.api.getUsers(form.getResults());
 
         call.enqueue(new Callback<List<DataUser>>() {
@@ -50,12 +52,17 @@ public class RestDataSource implements IDataSource {
             @Override
             public void onResponse(Call<List<DataUser>> call, Response<List<DataUser>> response) {
                 JavaLogger.logMsg(TAG, "success");
+
+                RestDataSource.this.bus.post(new Boolean(true));
             }
 
             @Override
             public void onFailure(Call<List<DataUser>> call, Throwable t) {
                 JavaLogger.logError(TAG, "error", t);
+
+                RestDataSource.this.bus.post(new DataError("kiwi"));
             }
         });
+
     }
 }
