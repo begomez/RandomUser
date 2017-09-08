@@ -1,7 +1,10 @@
 package com.bernatgomez.apps.randomuser.dependencies.modules;
 
+import com.bernatgomez.apps.randomuser.IListUsecase;
+import com.bernatgomez.apps.randomuser.ListUsecaseImpl;
 import com.bernatgomez.apps.randomuser.dependencies.scopes.PerActivity;
 import com.bernatgomez.apps.randomuser.mvp.presenter.ListPresenter;
+import com.bernatgomez.apps.randomuser.sources.RestDataSource;
 import com.squareup.otto.Bus;
 
 import dagger.Module;
@@ -12,9 +15,16 @@ import dagger.Provides;
  */
 @Module
 public class ListModule {
+
     @PerActivity
     @Provides
-    public ListPresenter provideListPresenter(Bus bus) {
-        return new ListPresenter(bus);
+    public IListUsecase provideListUsecase(Bus bus, RestDataSource rest) {
+        return new ListUsecaseImpl(bus, rest);
+    }
+
+    @PerActivity
+    @Provides
+    public ListPresenter provideListPresenter(Bus bus, IListUsecase usecase) {
+        return new ListPresenter(bus, usecase);
     }
 }

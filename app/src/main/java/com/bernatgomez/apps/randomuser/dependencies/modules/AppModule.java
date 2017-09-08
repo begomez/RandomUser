@@ -28,7 +28,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public IDataSource provideDataSource(Bus bus, Retrofit gateway) {
+    public RestDataSource provideDataSource(Bus bus, Retrofit gateway) {
         return new RestDataSource(bus, gateway);
     }
 
@@ -56,11 +56,11 @@ public class AppModule {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            //HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 
-            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            //interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-            builder.addInterceptor(interceptor);
+            //builder.addInterceptor(interceptor);
         }
 
         builder.connectTimeout(TIMEOUT, TimeUnit.MILLISECONDS);
@@ -74,6 +74,6 @@ public class AppModule {
     @Singleton
     @Provides
     public Bus provideBus() {
-        return new Bus(ThreadEnforcer.ANY);
+        return new Bus(ThreadEnforcer.MAIN);
     }
 }
