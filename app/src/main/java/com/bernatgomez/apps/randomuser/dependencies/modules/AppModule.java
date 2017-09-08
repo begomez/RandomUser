@@ -2,7 +2,8 @@ package com.bernatgomez.apps.randomuser.dependencies.modules;
 
 
 import com.bernatgomez.apps.randomuser.BuildConfig;
-import com.google.gson.Gson;
+import com.bernatgomez.apps.randomuser.sources.IDataSource;
+import com.bernatgomez.apps.randomuser.sources.RestDataSource;
 import com.squareup.otto.Bus;
 import com.squareup.otto.ThreadEnforcer;
 
@@ -24,6 +25,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 @Module
 public class AppModule {
+
+    @Singleton
+    @Provides
+    public IDataSource provideDataSource(Bus bus, Retrofit gateway) {
+        return new RestDataSource(bus, gateway);
+    }
 
     @Singleton
     @Provides
