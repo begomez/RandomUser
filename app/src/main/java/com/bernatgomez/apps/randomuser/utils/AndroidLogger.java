@@ -5,7 +5,7 @@ import android.util.Log;
 /**
  * Wrapper utilities to log both android info and error messages
  */
-public abstract class Logger {
+public abstract class AndroidLogger {
 
     /**
      * Log info msg

@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.bernatgomez.apps.randomuser.R;
-import com.bernatgomez.apps.randomuser.utils.Logger;
+import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 
 
 /**
@@ -37,42 +37,42 @@ public class BaseActivity extends AppCompatActivity {
             this.launchContentFragment();
         }
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onCreate()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onCreate()");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onDestroy()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onDestroy()");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onStart()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onStart()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onStop()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onStop()");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onResume()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onResume()");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onPause()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onPause()");
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bernatgomez.apps.randomuser.utils.Logger;
+import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 
 import butterknife.ButterKnife;
 
@@ -38,7 +38,7 @@ public class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Logger.logMsg(TAG, "onCreateView()");
+        AndroidLogger.logMsg(TAG, "onCreateView()");
 
         super.onCreateView(inflater, container, savedInstanceState);
 
@@ -53,21 +53,21 @@ public class BaseFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onCreate()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onCreate()");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onDestroy()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onDestroy()");
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onStart()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onStart()");
 
     }
 
@@ -75,7 +75,7 @@ public class BaseFragment extends Fragment {
     public void onStop() {
         super.onStop();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onStop()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onStop()");
     }
 
     @Override
@@ -84,7 +84,7 @@ public class BaseFragment extends Fragment {
 
         this.fetchData();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onResume()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onResume()");
 
     }
 
@@ -92,7 +92,7 @@ public class BaseFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        Logger.logMsg(this.getClass().getSimpleName(), "onPause()");
+        AndroidLogger.logMsg(this.getClass().getSimpleName(), "onPause()");
 
     }
 

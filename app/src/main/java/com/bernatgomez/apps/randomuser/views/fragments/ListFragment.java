@@ -11,7 +11,6 @@ import com.bernatgomez.apps.randomuser.dependencies.components.DaggerListCompone
 import com.bernatgomez.apps.randomuser.dependencies.modules.ListModule;
 import com.bernatgomez.apps.randomuser.mvp.presenter.ListPresenter;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
-import com.bernatgomez.apps.randomuser.utils.Logger;
 
 import javax.inject.Inject;
 
