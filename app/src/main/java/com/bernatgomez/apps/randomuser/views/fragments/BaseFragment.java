@@ -53,23 +53,21 @@ public class BaseFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Logger.logMsg(TAG, "onCreate()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onCreate()");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
 
-        Logger.logMsg(TAG, "onDestroy()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onDestroy()");
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-        this.fetchData();
-
-        Logger.logMsg(TAG, "onStart()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onStart()");
 
     }
 
@@ -77,14 +75,16 @@ public class BaseFragment extends Fragment {
     public void onStop() {
         super.onStop();
 
-        Logger.logMsg(TAG, "onStop()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onStop()");
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        Logger.logMsg(TAG, "onResume()");
+        this.fetchData();
+
+        Logger.logMsg(this.getClass().getSimpleName(), "onResume()");
 
     }
 
@@ -92,7 +92,7 @@ public class BaseFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        Logger.logMsg(TAG, "onPause()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onPause()");
 
     }
 

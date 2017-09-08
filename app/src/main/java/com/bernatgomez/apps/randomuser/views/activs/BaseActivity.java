@@ -37,42 +37,42 @@ public class BaseActivity extends AppCompatActivity {
             this.launchContentFragment();
         }
 
-        Logger.logMsg(TAG, "onCreate()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onCreate()");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
-        Logger.logMsg(TAG, "onDestroy()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onDestroy()");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        Logger.logMsg(TAG, "onStart()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onStart()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
 
-        Logger.logMsg(TAG, "onStop()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onStop()");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        Logger.logMsg(TAG, "onResume()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onResume()");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        Logger.logMsg(TAG, "onPause()");
+        Logger.logMsg(this.getClass().getSimpleName(), "onPause()");
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
