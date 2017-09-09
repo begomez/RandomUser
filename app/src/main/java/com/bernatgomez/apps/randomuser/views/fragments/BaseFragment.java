@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bernatgomez.apps.randomuser.mvp.view.IMVPBaseView;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
+import com.bernatgomez.apps.randomuser.views.activs.BaseActivity;
 import com.bernatgomez.apps.randomuser.views.interfaces.ILoading;
 import com.f2prateek.dart.Dart;
 
@@ -20,7 +22,7 @@ import butterknife.ButterKnife;
  *
  * Created by bernatgomez on 08/09/2017.
  */
-public class BaseFragment extends Fragment implements ILoading {
+public class BaseFragment extends Fragment implements IMVPBaseView {
 
     public static final String TAG = BaseFragment.class.getSimpleName();
 
@@ -127,7 +129,7 @@ public class BaseFragment extends Fragment implements ILoading {
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// ARCHITECTURE
+// VIEW IMPL
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
@@ -143,6 +145,15 @@ public class BaseFragment extends Fragment implements ILoading {
             this.loadingCallback.hideLoading();
         }
     }
+
+    @Override
+    public BaseActivity getContainerActivity() {
+        return (BaseActivity) this.getActivity();
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// ARCHITECTURE
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
     protected void saveLoadingCallback() {
         if (this.getActivity() instanceof ILoading) {
