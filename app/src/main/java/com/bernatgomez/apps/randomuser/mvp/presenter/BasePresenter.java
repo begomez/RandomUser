@@ -1,5 +1,6 @@
 package com.bernatgomez.apps.randomuser.mvp.presenter;
 
+import com.bernatgomez.apps.randomuser.mvp.presenter.interfaces.IPresenter;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPBaseView;
 import com.squareup.otto.Bus;
 
@@ -7,7 +8,7 @@ import com.squareup.otto.Bus;
  * Created by bernatgomez on 08/09/2017.
  */
 
-public class BasePresenter<T extends IMVPBaseView> {
+public class BasePresenter<T extends IMVPBaseView> implements IPresenter<T> {
 
     public static final String TAG = BasePresenter.class.getSimpleName();
 
