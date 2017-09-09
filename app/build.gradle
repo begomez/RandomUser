@@ -34,12 +34,15 @@ ext {
     rxand_version = "2.0.1"
     picasso_version = "2.5.2"
     dart_version="+"
+    room_version="1.0.0-alpha9"
 
 }
 
 repositories {
     mavenCentral()
     jcenter()
+    maven { url 'https://maven.google.com' }
+
 }
 
 dependencies {
@@ -61,12 +64,6 @@ dependencies {
     // OTTO
     compile "com.squareup:otto:$otto_version"
 
-    // TEST
-    testCompile "junit:junit:$junit_version"
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-
     // RX
     compile "io.reactivex.rxjava2:rxandroid:$rxand_version"
 
@@ -76,6 +73,16 @@ dependencies {
     // DART
     compile "com.f2prateek.dart:dart:$dart_version"
     provided "com.f2prateek.dart:dart-processor:$dart_version"
+
+    // ROOM
+    compile "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+
+    // TEST
+    testCompile "junit:junit:$junit_version"
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 
     // PROJECTS
     compile project(':repository')
