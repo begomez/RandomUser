@@ -15,6 +15,6 @@ import retrofit2.http.Query;
  */
 public interface IRandomUserAPI {
 
-    @GET("users")
+    @GET("/api")
     public Call<List<DataUser>> getUsers(@Query("results") int results);
 }

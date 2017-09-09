@@ -15,6 +15,7 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
+
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -35,7 +36,7 @@ public class AppModule {
     @Singleton
     @Provides
     public Retrofit provideRetrofit(OkHttpClient client) {
-        final String BASE_URL = "https://randomuser.me/api/";
+        final String BASE_URL = "https://randomuser.me/";
 
         Retrofit gateway =
             new Retrofit.Builder()
@@ -56,11 +57,11 @@ public class AppModule {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         if (BuildConfig.DEBUG) {
-            //HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 
-            //interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-            //builder.addInterceptor(interceptor);
+            builder.addInterceptor(interceptor);
         }
 
         builder.connectTimeout(TIMEOUT, TimeUnit.MILLISECONDS);

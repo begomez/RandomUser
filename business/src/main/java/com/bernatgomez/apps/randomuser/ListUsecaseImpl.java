@@ -27,7 +27,7 @@ public class ListUsecaseImpl extends BaseUsecase implements IListUsecase {
 
     @Override
     public void performAction() {
-        GetUsersForm form = new GetUsersForm(20);
+        GetUsersForm form = new GetUsersForm(5);
 
         this.registerInBus();
 

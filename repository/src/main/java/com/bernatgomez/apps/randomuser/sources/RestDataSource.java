@@ -60,7 +60,7 @@ public class RestDataSource implements IDataSource {
             public void onFailure(Call<List<DataUser>> call, Throwable t) {
                 JavaLogger.logError(TAG, "error", t);
 
-                RestDataSource.this.bus.post(new DataError("kiwi"));
+                RestDataSource.this.bus.post(new DataError(""));
             }
         });
 
