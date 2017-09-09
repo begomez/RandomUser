@@ -49,12 +49,28 @@ public abstract class Navigator {
      * @param fragment Target view
      */
     public static void launchFragment(BaseActivity activ, int container, BaseFragment fragment) {
+        Navigator.launchFragment(activ, container, fragment, false);
+    }
+
+
+    /**
+     * Method that encapsulates dynamic fragment transactions
+     *
+     * @param activ  Parent activity
+     * @param container Container in which transaction takes place
+     * @param fragment Target view
+     * @param addToBack Push transaction in back stack or not
+     */
+    public static void launchFragment(BaseActivity activ, int container, BaseFragment fragment, boolean addToBack) {
         FragmentManager mgr = activ.getSupportFragmentManager();
         FragmentTransaction trans = mgr.beginTransaction();
 
 
         trans.replace(container, fragment, fragment.getIdentifier());
-        trans.addToBackStack(fragment.getIdentifier());
+
+        if (addToBack) {
+            trans.addToBackStack(fragment.getIdentifier());
+        }
 
         trans.commit();
         mgr.executePendingTransactions();
