@@ -1,5 +1,6 @@
 package com.bernatgomez.apps.randomuser.api;
 
+import com.bernatgomez.apps.randomuser.models.DataResponse;
 import com.bernatgomez.apps.randomuser.models.DataUser;
 
 import java.util.List;
@@ -16,5 +17,5 @@ import retrofit2.http.Query;
 public interface IRandomUserAPI {
 
     @GET("/api")
-    public Call<List<DataUser>> getUsers(@Query("results") int results);
+    public Call<DataResponse> getUsers(@Query("results") int results);
 }
