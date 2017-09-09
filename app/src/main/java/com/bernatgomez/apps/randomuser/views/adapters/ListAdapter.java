@@ -185,7 +185,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         @OnClick(R.id.item_avatar)
         public void onImgClick(View view) {
             if (listener != null) {
-                listener.onUserSelected(data.get(this.getAdapterPosition()));
+                listener.onUserSelected(view, data.get(this.getAdapterPosition()));
             }
         }
 
@@ -205,7 +205,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
      *
      */
     public interface OnImageListener {
-        public void onUserSelected(UserModel user);
+        public void onUserSelected(View v, UserModel user);
         public void onUserDisabled(UserModel user);
     }
 

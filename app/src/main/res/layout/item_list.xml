@@ -27,6 +27,8 @@
         android:layout_marginLeft="@dimen/item_pad_horiz"
         android:layout_marginBottom="@dimen/item_pad_horiz"
         android:layout_marginTop="@dimen/item_pad_horiz"
+
+        android:transitionName="@string/shared_transition"
         />
 
     <TextView

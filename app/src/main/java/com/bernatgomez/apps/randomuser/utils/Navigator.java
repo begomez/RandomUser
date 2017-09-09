@@ -1,10 +1,14 @@
 package com.bernatgomez.apps.randomuser.utils;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 
 import com.bernatgomez.apps.randomuser.views.activs.BaseActivity;
 import com.bernatgomez.apps.randomuser.views.activs.DetailActivity;
@@ -23,15 +27,18 @@ public abstract class Navigator {
     /**
      * Navigate to detail activity
      *
-     * @param cntxt
+     * @param activ
      * @param user
+     * @param v
      */
-    public static void launchDetail(Context cntxt, UserModel user) {
-        Intent i = new Intent(cntxt, DetailActivity.class);
+    public static void launchDetail(Activity activ, UserModel user, View v) {
+        Intent i = new Intent(activ, DetailActivity.class);
 
         i.putExtra(Constants.EXTRA_USER, user);
 
-        cntxt.startActivity(i);
+        Bundle b = ActivityOptionsCompat.makeSceneTransitionAnimation(activ, v, v.getTransitionName()).toBundle();
+
+        activ.startActivity(i, b);
     }
 
     /**
@@ -47,6 +54,7 @@ public abstract class Navigator {
 
 
         trans.replace(container, fragment, fragment.getIdentifier());
+        trans.addToBackStack(fragment.getIdentifier());
 
         trans.commit();
         mgr.executePendingTransactions();

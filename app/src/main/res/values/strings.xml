@@ -2,4 +2,5 @@
     <string name="app_name">RandomUser</string>
     <string name="search_title">Search</string>
     <string name="search_hint">Seach user...</string>
+    <string name="shared_transition" translatable="false">shared_img</string>
 </resources>

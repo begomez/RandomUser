@@ -26,6 +26,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
+        android:transitionName="@string/shared_transition"
+
         android:layout_marginTop="@dimen/item_pad_horiz"
         />
 

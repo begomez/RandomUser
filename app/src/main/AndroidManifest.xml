@@ -30,6 +30,7 @@
         <activity
             android:name=".views.activs.DetailActivity"
             android:parentActivityName=".views.activs.ListActivity"
+            android:theme="@style/AppTheme.Details"
             >
 
         </activity>

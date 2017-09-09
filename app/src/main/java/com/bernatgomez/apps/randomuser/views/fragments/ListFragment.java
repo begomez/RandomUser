@@ -13,6 +13,7 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
@@ -247,10 +248,10 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void onUserSelected(UserModel user) {
+    public void onUserSelected(View v, UserModel user) {
         AndroidLogger.logMsg(TAG, "onUserSelected()");
 
-        Navigator.launchDetail(this.getContext(), user);
+        Navigator.launchDetail(this.getContainerActivity(), user, v);
     }
 
     @Override
