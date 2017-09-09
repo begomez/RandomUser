@@ -4,6 +4,12 @@ apply plugin: 'kotlin'
 ext {
     retrofit_version="2.3.0"
     okhttp_version="3.6.0"
+    rx_version="2.0.7"
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
 }
 
 
@@ -25,6 +31,9 @@ dependencies {
     // KOTLIN
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
+    // RXJAVA
+    compile "io.reactivex.rxjava2:rxjava:$rx_version"
+
     // PROJECTS
     compile project (":common")
 
@@ -38,6 +47,7 @@ targetCompatibility = "1.7"
 
 buildscript {
     ext.kotlin_version = '1.1.4-3'
+
     repositories {
         mavenCentral()
     }

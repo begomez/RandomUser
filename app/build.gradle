@@ -17,14 +17,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // avoid duplicated file
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
 }
 
 ext {
+    espresso_version="2.2.2"
     support_version="26.+"
     compat_version = "26.+"
     constraint_version = "1.0.2"
     butter_version = "8.8.1"
     junit_version = "4.12"
+    rxand_version = "2.0.1"
+
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -51,6 +64,9 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    // RX
+    compile "io.reactivex.rxjava2:rxandroid:$rxand_version"
 
     // PROJECTS
     compile project(':repository')
