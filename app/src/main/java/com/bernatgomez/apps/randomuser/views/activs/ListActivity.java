@@ -6,6 +6,10 @@ import com.bernatgomez.apps.randomuser.R;
 import com.bernatgomez.apps.randomuser.utils.Navigator;
 import com.bernatgomez.apps.randomuser.views.fragments.ListFragment;
 
+
+/**
+ * Main screen container activity
+ */
 public class ListActivity extends BaseActivity {
 
     @Override

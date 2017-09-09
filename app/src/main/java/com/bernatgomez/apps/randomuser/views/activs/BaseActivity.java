@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.bernatgomez.apps.randomuser.R;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
+import com.f2prateek.dart.Dart;
 
 
 /**
@@ -32,6 +33,8 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         this.setContentView(this.layoutId);
+
+        this.injectExtras();
 
         if (savedInstanceState == null) {
             this.launchContentFragment();
@@ -78,6 +81,8 @@ public class BaseActivity extends AppCompatActivity {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    protected void injectExtras() {Dart.inject(this);}
 
     /**
      * Hook to launch main fragment transaction on each activity

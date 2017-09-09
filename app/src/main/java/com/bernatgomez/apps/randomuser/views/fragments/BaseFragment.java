@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
+import com.f2prateek.dart.Dart;
 
 import butterknife.ButterKnife;
 
@@ -45,6 +46,8 @@ public class BaseFragment extends Fragment {
         View v = inflater.inflate(this.layoutId, container, false);
 
         this.bindViews(v);
+
+        this.bindExtras();
 
         this.configViews();
 
@@ -109,6 +112,9 @@ public class BaseFragment extends Fragment {
     protected void bindViews(View v) {
         ButterKnife.bind(this, v);
     }
+
+    protected void bindExtras() {
+        Dart.inject(this, this.getArguments());}
 
     protected void configViews() {}
 
