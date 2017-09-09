@@ -73,6 +73,6 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
         this.txtGender.setText(this.user.getGender());
         this.txtLocation.setText(this.user.getLocation().getFullLocation());
         this.txtName.setText(this.user.getName().getFullName());
-        Picasso.with(this.getContext()).load(this.user.getPicture().getMedium()).into(this.imgAvatar);
+        Picasso.with(this.getContext()).load(this.user.getPicture().getLarge()).into(this.imgAvatar);
     }
 }
