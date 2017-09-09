@@ -43,6 +43,12 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
         this.usecase.performAction();
     }
 
+    public void filterUsers(String query) {
+        this.view.getAdapter().filter(query);
+
+        this.view.resetScroll();
+    }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // SUBSCRIPTIONS

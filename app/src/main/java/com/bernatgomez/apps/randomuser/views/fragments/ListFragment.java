@@ -133,13 +133,11 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                AndroidLogger.logMsg(TAG, "query: " + query);
-
                 searchView.setIconified(true);
 
                 menu.findItem(R.id.action_search).collapseActionView();
 
-                getActivity().invalidateOptionsMenu();
+                ListFragment.this.presenter.filterUsers(query);
 
                 return true;
             }
@@ -212,6 +210,16 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
     public void onRandomUsersError(String msg) {
         this.txtEmpty.setText(msg);
 
+    }
+
+    @Override
+    public void resetScroll() {
+        this.userList.scrollToPosition(0);
+    }
+
+    @Override
+    public ListAdapter getAdapter() {
+        return this.adapter;
     }
 
     private void updateData(final List<UserModel> users) {
