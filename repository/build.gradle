@@ -36,7 +36,6 @@ dependencies {
 
     // PROJECTS
     compile project (":common")
-
 }
 
 

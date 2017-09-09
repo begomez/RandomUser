@@ -3,10 +3,10 @@ apply plugin: 'java'
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-
     // OTTO
     compile "com.squareup:otto:$otto_version"
 
+    // PROJECTS
     compile project (":repository")
     compile project (":common")
 }
