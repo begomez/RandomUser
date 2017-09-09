@@ -1,6 +1,6 @@
 package com.bernatgomez.apps.randomuser.mvp.presenter;
 
-import com.bernatgomez.apps.randomuser.DbTransactionResult;
+import com.bernatgomez.apps.randomuser.models.DbTransactionResult;
 import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;
 import com.bernatgomez.apps.randomuser.persist.transactions.DbTransactionExecutor;
 import com.bernatgomez.apps.randomuser.usecases.users.IGetUsersUsecase;

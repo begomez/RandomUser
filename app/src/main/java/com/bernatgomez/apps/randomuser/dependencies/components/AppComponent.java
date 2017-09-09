@@ -1,9 +1,8 @@
 package com.bernatgomez.apps.randomuser.dependencies.components;
 
 
-import com.bernatgomez.apps.randomuser.sources.IDataSource;
+import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
 import com.bernatgomez.apps.randomuser.dependencies.modules.AppModule;
-import com.bernatgomez.apps.randomuser.sources.RestDataSource;
 import com.squareup.otto.Bus;
 
 import javax.inject.Singleton;

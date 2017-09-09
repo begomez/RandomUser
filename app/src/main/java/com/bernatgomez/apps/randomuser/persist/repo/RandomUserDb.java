@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser.persist;
+package com.bernatgomez.apps.randomuser.persist.repo;
 
 
 import android.arch.persistence.db.SupportSQLiteOpenHelper;
@@ -13,8 +13,8 @@ import android.arch.persistence.room.RoomDatabase;
  *
  * Created by bernatgomez on 09/09/2017.
  */
-@Database(entities={User.class}, version=RandomUserDatabase.DB_VERSION)
-public abstract class RandomUserDatabase extends RoomDatabase {
+@Database(entities={User.class}, version= RandomUserDb.DB_VERSION)
+public abstract class RandomUserDb extends RoomDatabase {
 
     public static final int DB_VERSION = 1;
 

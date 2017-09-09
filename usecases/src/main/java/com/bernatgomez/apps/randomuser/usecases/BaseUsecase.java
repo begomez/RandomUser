@@ -1,8 +1,7 @@
 package com.bernatgomez.apps.randomuser.usecases;
 
 
-import com.bernatgomez.apps.randomuser.sources.IDataSource;
-import com.bernatgomez.apps.randomuser.sources.RestDataSource;
+import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
 import com.squareup.otto.Bus;
 
 

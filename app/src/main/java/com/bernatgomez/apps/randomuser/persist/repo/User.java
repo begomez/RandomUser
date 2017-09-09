@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser.persist;
+package com.bernatgomez.apps.randomuser.persist.repo;
 
 
 import android.arch.persistence.room.ColumnInfo;

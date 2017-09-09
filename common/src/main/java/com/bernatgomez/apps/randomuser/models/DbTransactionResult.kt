@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser
+package com.bernatgomez.apps.randomuser.models
 
 
 import com.bernatgomez.apps.randomuser.models.BaseModel

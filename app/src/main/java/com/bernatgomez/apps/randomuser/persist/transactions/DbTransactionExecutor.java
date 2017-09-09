@@ -2,12 +2,12 @@ package com.bernatgomez.apps.randomuser.persist.transactions;
 
 import android.os.AsyncTask;
 
-import com.bernatgomez.apps.randomuser.DbTransactionResult;
-import com.bernatgomez.apps.randomuser.holder.DbHolder;
+import com.bernatgomez.apps.randomuser.models.DbTransactionResult;
+import com.bernatgomez.apps.randomuser.persist.holder.UserDbHolder;
 import com.bernatgomez.apps.randomuser.models.BaseModel;
 import com.bernatgomez.apps.randomuser.models.UserModel;
-import com.bernatgomez.apps.randomuser.persist.RandomUserDatabase;
-import com.bernatgomez.apps.randomuser.persist.User;
+import com.bernatgomez.apps.randomuser.persist.repo.RandomUserDb;
+import com.bernatgomez.apps.randomuser.persist.repo.User;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 import com.squareup.otto.Bus;
 
@@ -81,7 +81,7 @@ public class DbTransactionExecutor implements IExecutor {
             try {
                 this.target = userModels[0];
 
-                RandomUserDatabase db = DbHolder.getInstance().getDb();
+                RandomUserDb db = UserDbHolder.getInstance().getDb();
 
                 db.userDao().insertUser(this.getUserDbModelFrom(this.target));
 

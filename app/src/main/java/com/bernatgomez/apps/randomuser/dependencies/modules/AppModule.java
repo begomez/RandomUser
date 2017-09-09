@@ -2,7 +2,7 @@ package com.bernatgomez.apps.randomuser.dependencies.modules;
 
 
 import com.bernatgomez.apps.randomuser.BuildConfig;
-import com.bernatgomez.apps.randomuser.sources.IDataSource;
+import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
 import com.bernatgomez.apps.randomuser.sources.RestDataSource;
 import com.bernatgomez.apps.randomuser.persist.transactions.DbTransactionExecutor;
 import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;

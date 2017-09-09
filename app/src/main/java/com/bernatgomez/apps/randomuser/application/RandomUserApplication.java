@@ -4,8 +4,8 @@ import android.app.Application;
 import android.arch.persistence.room.Room;
 import android.os.AsyncTask;
 
-import com.bernatgomez.apps.randomuser.holder.DbHolder;
-import com.bernatgomez.apps.randomuser.persist.RandomUserDatabase;
+import com.bernatgomez.apps.randomuser.persist.holder.UserDbHolder;
+import com.bernatgomez.apps.randomuser.persist.repo.RandomUserDb;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 
 public class RandomUserApplication extends Application {
@@ -61,8 +61,8 @@ public class RandomUserApplication extends Application {
             try {
 
                 //XXX: retrieve DB and store it on holder
-                DbHolder.getInstance().setDb(
-                    Room.databaseBuilder(getApplicationContext(), RandomUserDatabase.class, RandomUserDatabase.DB_NAME).build());
+                UserDbHolder.getInstance().setDb(
+                    Room.databaseBuilder(getApplicationContext(), RandomUserDb.class, RandomUserDb.DB_NAME).build());
 
                 return true;
 

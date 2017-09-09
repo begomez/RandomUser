@@ -6,6 +6,7 @@ import com.bernatgomez.apps.randomuser.models.DataError;
 import com.bernatgomez.apps.randomuser.models.DataResponse;
 
 import com.bernatgomez.apps.randomuser.models.JavaLogger;
+import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
 import com.squareup.otto.Bus;
 
 import retrofit2.Retrofit;

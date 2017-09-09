@@ -1,4 +1,4 @@
 /**
- * Package containing application usecases (functionalities)
+ * Module containing application usecases (functionalities)
  */
 package com.bernatgomez.apps.randomuser;
