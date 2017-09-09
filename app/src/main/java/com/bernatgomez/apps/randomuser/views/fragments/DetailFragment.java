@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bernatgomez.apps.randomuser.R;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPBaseView;
 import com.bernatgomez.apps.randomuser.utils.Constants;
+import com.bernatgomez.apps.randomuser.utils.TextUtils;
 import com.f2prateek.dart.InjectExtra;
 import com.squareup.picasso.Picasso;
 
@@ -88,7 +89,7 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
         Picasso.with(this.getContext()).load(this.user.getPicture().getLarge()).into(this.imgAvatar);
 
         this.txtMail.setText(this.user.getEmail());
-        this.txtGender.setText(this.user.getGender());
+        this.txtGender.setText(TextUtils.capitalize(this.user.getGender()));
         this.txtLocation.setText(this.user.getLocation().getFullLocation());
         this.txtName.setText(this.user.getName().getFullName());
 

@@ -25,6 +25,7 @@
     <style name="ItemTitle" parent="TextAppearance.AppCompat.Title">
         <item name="android:maxLines">1</item>
         <item name="android:gravity">left</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
     <style name="ItemSubtitle" parent="TextAppearance.AppCompat.Caption">
@@ -38,7 +39,6 @@
 
     <style name="DetailBody" parent="ItemBody">
         <item name="android:paddingLeft">@dimen/item_pad_horiz</item>
-        <item name="android:paddingStart">@dimen/item_pad_horiz</item>
         <item name="android:paddingTop">@dimen/item_pad_vert</item>
     </style>
 
