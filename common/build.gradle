@@ -1,8 +1,36 @@
 apply plugin: 'java'
+apply plugin: 'kotlin'
+
+ext {
+    mapper_version="1.1.0"
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // KOTLIN
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    // MAPPER
+    compile "org.modelmapper:modelmapper:$mapper_version"
 }
 
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
+
+
+// KOTLIN AUTO CONFIG
+
+
+buildscript {
+    ext.kotlin_version = '1.1.4-3'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+repositories {
+    mavenCentral()
+}
