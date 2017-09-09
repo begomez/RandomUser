@@ -8,12 +8,20 @@ import com.bernatgomez.apps.randomuser.models.DataUser;
 import com.bernatgomez.apps.randomuser.utils.JavaLogger;
 import com.squareup.otto.Bus;
 
+import org.reactivestreams.Subscription;
+
 import java.util.List;
 
+import javax.xml.crypto.Data;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import rx.Subscriber;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by bernatgomez on 08/09/2017.
@@ -46,24 +54,28 @@ public class RestDataSource implements IDataSource {
     @Override
     public void getUsers(GetUsersForm form) {
 
-        Call<DataResponse> call = this.api.getUsers(form.getResults());
+        this.api.getUsers(form.getResults())
+            .subscribeOn(Schedulers.io())
+            .observeOn(Schedulers.immediate())
+            .subscribe(new Subscriber<DataResponse>() {
+               @Override
+               public void onCompleted() {
+                   JavaLogger.logMsg(TAG, "onCompleted()");
+               }
 
-        call.enqueue(new Callback<DataResponse>() {
+               @Override
+               public void onError(Throwable e) {
+                   JavaLogger.logError(TAG, "onError()", e);
 
-            @Override
-            public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
-                JavaLogger.logMsg(TAG, "success");
+                   RestDataSource.this.bus.post(new DataError(""));
+               }
 
-                RestDataSource.this.bus.post(new Boolean(true));
-            }
+               @Override
+               public void onNext(DataResponse dataResponse) {
+                   RestDataSource.this.bus.post(new Boolean(true));
 
-            @Override
-            public void onFailure(Call<DataResponse> call, Throwable t) {
-                JavaLogger.logError(TAG, "error", t);
-
-                RestDataSource.this.bus.post(new DataError(""));
-            }
-        });
-
+                   JavaLogger.logMsg(TAG, "onNext()");
+               }
+           });
     }
 }

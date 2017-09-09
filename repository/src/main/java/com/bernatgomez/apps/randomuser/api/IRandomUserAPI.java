@@ -8,6 +8,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+import rx.Observable;
 
 /**
  * Retrofit interface containing the methods that match the REST API published by randomuser web
@@ -17,5 +18,5 @@ import retrofit2.http.Query;
 public interface IRandomUserAPI {
 
     @GET("/api")
-    public Call<DataResponse> getUsers(@Query("results") int results);
+    public Observable<DataResponse> getUsers(@Query("results") int results);
 }
