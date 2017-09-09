@@ -1,5 +1,6 @@
 package com.bernatgomez.apps.randomuser.views.adapters;
 
+import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.util.SortedList;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.bernatgomez.apps.randomuser.R;
 import com.bernatgomez.apps.randomuser.views.callback.ListAdapterCallBack;
 import com.bernatgomez.apps.randomuser.views.callback.ListComparator;
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import com.bernatgomez.apps.randomuser.models.UserModel;
+import com.squareup.picasso.Transformation;
 
 
 /**
@@ -161,11 +164,22 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         }
 
         public void setData(UserModel user) {
-            Picasso.with(this.itemView.getContext()).load(user.getPicture().getMedium()).into(this.imgAvatar);
+            Picasso.with(this.itemView.getContext()).load(user.getPicture().getMedium()).transform(this.getTransformation()).into(this.imgAvatar);
+
             this.txtFullName.setText(user.getName().getFullName());
             this.txtEmail.setText(user.getEmail());
             this.txtPhone.setText(user.getPhone());
             this.imgAction.setVisibility(user.getDisabled()? View.INVISIBLE : View.VISIBLE);
+        }
+
+        private Transformation getTransformation() {
+            return
+                new RoundedTransformationBuilder()
+                    .borderColor(Color.WHITE)
+                    .borderWidthDp(1)
+                    .cornerRadiusDp(30)
+                    .oval(false)
+                        .build();
         }
 
         @OnClick(R.id.item_avatar)

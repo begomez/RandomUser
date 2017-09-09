@@ -35,6 +35,7 @@ ext {
     picasso_version = "2.5.2"
     dart_version="+"
     room_version="1.0.0-alpha9"
+    round_img_version="2.3.0"
 
 }
 
@@ -77,6 +78,9 @@ dependencies {
     // ROOM
     compile "android.arch.persistence.room:runtime:$room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+
+    // ROUNDED IMAGE
+    compile "com.makeramen:roundedimageview:$round_img_version"
 
     // TEST
     testCompile "junit:junit:$junit_version"
