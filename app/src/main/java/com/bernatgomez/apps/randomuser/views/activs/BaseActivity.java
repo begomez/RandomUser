@@ -11,7 +11,7 @@ import com.f2prateek.dart.Dart;
 
 
 /**
- * Superclass activity
+ * Base class activity defining a common architecture
  *
  * Created by bernatgomez on 08/09/2017.
  */
@@ -19,8 +19,14 @@ public class BaseActivity extends AppCompatActivity {
 
     public static final String TAG = BaseActivity.class.getSimpleName();
 
+    /**
+     * Fragment transaction container
+     */
     public static final int MAIN_CONTAINER = R.id.main_content;
 
+    /**
+     * Layout identifier for each activity
+     */
     protected int layoutId = 0;
 
 
@@ -82,6 +88,9 @@ public class BaseActivity extends AppCompatActivity {
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Hook for extras injection
+     */
     protected void injectExtras() {Dart.inject(this);}
 
     /**

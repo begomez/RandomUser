@@ -15,6 +15,7 @@ import com.bernatgomez.apps.randomuser.dependencies.modules.ListModule;
 import com.bernatgomez.apps.randomuser.mvp.presenter.ListPresenter;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
+import com.bernatgomez.apps.randomuser.utils.Navigator;
 import com.bernatgomez.apps.randomuser.views.adapters.ListAdapter;
 
 import java.util.List;
@@ -143,7 +144,7 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void onImageClick() {
-        AndroidLogger.logMsg(TAG, "click");
+    public void onImageClick(UserModel user) {
+        Navigator.launchDetail(this.getContext(), user);
     }
 }

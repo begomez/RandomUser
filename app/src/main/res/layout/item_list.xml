@@ -40,7 +40,7 @@
 
         android:layout_marginTop="@dimen/item_pad_horiz"
         android:layout_marginLeft="@dimen/item_pad_left"
-        android:layout_marginRight="@dimen/item_pad_right"
+        android:layout_marginRight="@dimen/item_pad_vert"
         />
 
     <TextView
@@ -57,7 +57,7 @@
 
         android:layout_marginTop="@dimen/item_pad_horiz"
         android:layout_marginLeft="@dimen/item_pad_left"
-        android:layout_marginRight="@dimen/item_pad_right"
+        android:layout_marginRight="@dimen/item_pad_vert"
         />
 
     <TextView
@@ -76,7 +76,7 @@
         android:layout_marginTop="@dimen/item_pad_horiz"
         android:layout_marginBottom="@dimen/item_pad_horiz"
         android:layout_marginLeft="@dimen/item_pad_left"
-        android:layout_marginRight="@dimen/item_pad_right"
+        android:layout_marginRight="@dimen/item_pad_vert"
         />
 
 </android.support.constraint.ConstraintLayout>

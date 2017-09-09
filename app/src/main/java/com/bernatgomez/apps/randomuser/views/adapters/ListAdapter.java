@@ -22,7 +22,7 @@ import models.UserModel;
 
 
 /**
- * Random user adapter used in order to bind data to item views
+ * Random user adapter for data binding
  *
  * Created by bernatgomez on 09/09/2017.
  */
@@ -31,6 +31,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
     private List<UserModel> data;
 
     private OnImageListener listener;
+
 
     /**
      *
@@ -107,7 +108,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
 
         public void setData(UserModel user) {
             Picasso.with(this.itemView.getContext()).load(user.getPicture().getThumbnail()).into(this.imgAvatar);
-            this.txtFullName.setText(user.getFullName());
+            this.txtFullName.setText(user.getName().getFullName());
             this.txtEmail.setText(user.getEmail());
             this.txtPhone.setText(user.getPhone());
         }
@@ -115,20 +116,20 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         @Override
         public void onClick(View view) {
             if (listener != null) {
-                listener.onImageClick();
+                listener.onImageClick(data.get(this.getAdapterPosition()));
             }
         }
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// CLICK INTERFACE
+// CLICK INTERFACE DEFINITION
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      *
      */
     public interface OnImageListener {
-        public void onImageClick();
+        public void onImageClick(UserModel user);
     }
 
 }

@@ -13,7 +13,7 @@ import com.f2prateek.dart.Dart;
 import butterknife.ButterKnife;
 
 /**
- * Superclass fragment
+ * Base class fragment defining a common architecture
  *
  * Created by bernatgomez on 08/09/2017.
  */
@@ -21,6 +21,9 @@ public class BaseFragment extends Fragment {
 
     public static final String TAG = BaseFragment.class.getSimpleName();
 
+    /**
+     * Layout identifier
+     */
     protected int layoutId = 0;
 
 
@@ -105,8 +108,16 @@ public class BaseFragment extends Fragment {
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Hook for Dagger injection
+     *
+     * Should be overriden by children
+     */
     protected void injectDependencies() {}
 
+    /**
+     * Hook for data requests to REST repos (for instance)
+     */
     protected void fetchData() {}
 
     protected void bindViews(View v) {
@@ -114,10 +125,19 @@ public class BaseFragment extends Fragment {
     }
 
     protected void bindExtras() {
-        Dart.inject(this, this.getArguments());}
+        Dart.inject(this, this.getArguments());
+    }
 
+    /**
+     * Hook used in order to set content in views
+     */
     protected void configViews() {}
 
+    /**
+     * Accessor for fragment identifiers used in fragment transactions
+     *
+     * @return
+     */
     public String getIdentifier() {
         return this.getClass().getName();
     }
