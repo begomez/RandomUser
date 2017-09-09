@@ -1,7 +1,4 @@
-package com.bernatgomez.apps.randomuser.application;
-
-import android.arch.persistence.room.RoomDatabase;
-import android.content.Context;
+package com.bernatgomez.apps.randomuser.holder;
 
 
 import com.bernatgomez.apps.randomuser.persist.RandomUserDatabase;

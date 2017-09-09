@@ -2,9 +2,9 @@ package com.bernatgomez.apps.randomuser.application;
 
 import android.app.Application;
 import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
 import android.os.AsyncTask;
 
+import com.bernatgomez.apps.randomuser.holder.DbHolder;
 import com.bernatgomez.apps.randomuser.persist.RandomUserDatabase;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 

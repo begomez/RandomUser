@@ -7,7 +7,7 @@ dependencies {
     compile "com.squareup:otto:$otto_version"
 
     // PROJECTS
-    compile project (":repository")
+    compile project (':data')
     compile project (":common")
 }
 

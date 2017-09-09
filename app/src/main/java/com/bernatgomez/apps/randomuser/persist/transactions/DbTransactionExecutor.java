@@ -3,7 +3,7 @@ package com.bernatgomez.apps.randomuser.persist.transactions;
 import android.os.AsyncTask;
 
 import com.bernatgomez.apps.randomuser.DbTransactionResult;
-import com.bernatgomez.apps.randomuser.application.DbHolder;
+import com.bernatgomez.apps.randomuser.holder.DbHolder;
 import com.bernatgomez.apps.randomuser.models.BaseModel;
 import com.bernatgomez.apps.randomuser.models.UserModel;
 import com.bernatgomez.apps.randomuser.persist.RandomUserDatabase;
