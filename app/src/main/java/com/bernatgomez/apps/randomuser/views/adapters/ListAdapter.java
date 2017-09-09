@@ -39,14 +39,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
 
     private ListComparator comparator;
 
-    private OnImageListener listener;
+    private OnItemInteraction listener;
 
 
     /**
      *
      * @param users
      */
-    public ListAdapter(List<UserModel> users, OnImageListener listener, ListComparator comparator) {
+    public ListAdapter(List<UserModel> users, OnItemInteraction listener, ListComparator comparator) {
         this.listener = listener;
 
         this.comparator = comparator;
@@ -204,7 +204,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
     /**
      *
      */
-    public interface OnImageListener {
+    public interface OnItemInteraction {
         public void onUserSelected(View v, UserModel user);
         public void onUserDisabled(UserModel user);
     }

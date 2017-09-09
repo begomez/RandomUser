@@ -42,7 +42,7 @@ import com.bernatgomez.apps.randomuser.views.callback.ListComparator;
  *
  * Created by bernatgomez on 08/09/2017.
  */
-public class ListFragment extends BaseFragment implements IMVPListView, ListAdapter.OnImageListener {
+public class ListFragment extends BaseFragment implements IMVPListView, ListAdapter.OnItemInteraction {
 
     @BindView(R.id.swipe_container)
     protected SwipeRefreshLayout swipeContainer;
@@ -256,6 +256,8 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 
     @Override
     public void onUserDisabled(UserModel user) {
+
+        //TODO: ask for confirmation...
         AndroidLogger.logMsg(TAG, "onUserDisabled");
 
         this.presenter.disableUser(user);
