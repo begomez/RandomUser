@@ -18,5 +18,5 @@ import dagger.Component;
 @Component(modules={AppModule.class})
 public interface AppComponent {
     public Bus getBus();
-    public RestDataSource getDataSource();
+    public IDataSource getDataSource();
 }

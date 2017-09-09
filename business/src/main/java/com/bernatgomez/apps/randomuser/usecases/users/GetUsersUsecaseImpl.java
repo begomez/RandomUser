@@ -5,6 +5,7 @@ import com.bernatgomez.apps.randomuser.forms.FormGetUsers;
 import com.bernatgomez.apps.randomuser.mappers.ErrorMapper;
 import com.bernatgomez.apps.randomuser.models.DataError;
 import com.bernatgomez.apps.randomuser.models.DataResponse;
+import com.bernatgomez.apps.randomuser.sources.IDataSource;
 import com.bernatgomez.apps.randomuser.sources.RestDataSource;
 import com.bernatgomez.apps.randomuser.usecases.BaseUsecase;
 import com.bernatgomez.apps.randomuser.mappers.DataMapper;
@@ -27,7 +28,7 @@ public class GetUsersUsecaseImpl extends BaseUsecase implements IGetUsersUsecase
 // CONSTRUCTOR
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public GetUsersUsecaseImpl(Bus bus, RestDataSource rest) {
+    public GetUsersUsecaseImpl(Bus bus, IDataSource rest) {
         super(bus, rest);
     }
 

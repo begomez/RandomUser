@@ -1,5 +1,6 @@
 package com.bernatgomez.apps.randomuser.dependencies.modules;
 
+import com.bernatgomez.apps.randomuser.sources.IDataSource;
 import com.bernatgomez.apps.randomuser.usecases.users.IGetUsersUsecase;
 import com.bernatgomez.apps.randomuser.usecases.users.GetUsersUsecaseImpl;
 import com.bernatgomez.apps.randomuser.dependencies.scopes.PerActivity;
@@ -18,7 +19,7 @@ public class ListModule {
 
     @PerActivity
     @Provides
-    public IGetUsersUsecase provideListUsecase(Bus bus, RestDataSource rest) {
+    public IGetUsersUsecase provideListUsecase(Bus bus, IDataSource rest) {
         return new GetUsersUsecaseImpl(bus, rest);
     }
 

@@ -22,7 +22,7 @@ public class BaseUsecase {
      * @param bus
      * @param rest
      */
-    public BaseUsecase(Bus bus, RestDataSource rest) {
+    public BaseUsecase(Bus bus, IDataSource rest) {
         this.bus = bus;
         this.rest = rest;
     }

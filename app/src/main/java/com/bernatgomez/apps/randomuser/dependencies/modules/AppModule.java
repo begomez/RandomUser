@@ -30,7 +30,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public RestDataSource provideDataSource(Bus bus, Retrofit gateway) {
+    public IDataSource provideDataSource(Bus bus, Retrofit gateway) {
         return new RestDataSource(bus, gateway);
     }
 
