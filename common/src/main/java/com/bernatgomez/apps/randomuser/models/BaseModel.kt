@@ -1,5 +1,4 @@
-package models
-
+package com.bernatgomez.apps.randomuser.models
 
 import java.io.Serializable
 

@@ -10,15 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
-import com.bernatgomez.apps.randomuser.views.fragments.ListFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-import models.UserModel;
+
+import com.bernatgomez.apps.randomuser.models.UserModel;
 
 
 /**

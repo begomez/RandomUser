@@ -10,7 +10,7 @@ import com.bernatgomez.apps.randomuser.utils.Navigator;
 import com.bernatgomez.apps.randomuser.views.fragments.DetailFragment;
 import com.f2prateek.dart.InjectExtra;
 
-import models.UserModel;
+import com.bernatgomez.apps.randomuser.models.UserModel;
 
 
 /**

@@ -1,7 +1,7 @@
 package com.bernatgomez.apps.randomuser.dependencies.modules;
 
-import com.bernatgomez.apps.randomuser.IListUsecase;
-import com.bernatgomez.apps.randomuser.ListUsecaseImpl;
+import com.bernatgomez.apps.randomuser.usecases.users.IGetUsersUsecase;
+import com.bernatgomez.apps.randomuser.usecases.users.GetUsersUsecaseImpl;
 import com.bernatgomez.apps.randomuser.dependencies.scopes.PerActivity;
 import com.bernatgomez.apps.randomuser.mvp.presenter.ListPresenter;
 import com.bernatgomez.apps.randomuser.sources.RestDataSource;
@@ -18,13 +18,13 @@ public class ListModule {
 
     @PerActivity
     @Provides
-    public IListUsecase provideListUsecase(Bus bus, RestDataSource rest) {
-        return new ListUsecaseImpl(bus, rest);
+    public IGetUsersUsecase provideListUsecase(Bus bus, RestDataSource rest) {
+        return new GetUsersUsecaseImpl(bus, rest);
     }
 
     @PerActivity
     @Provides
-    public ListPresenter provideListPresenter(Bus bus, IListUsecase usecase) {
+    public ListPresenter provideListPresenter(Bus bus, IGetUsersUsecase usecase) {
         return new ListPresenter(bus, usecase);
     }
 }

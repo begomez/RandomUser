@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser.utils;
+package com.bernatgomez.apps.randomuser.mappers;
 
 
 import com.bernatgomez.apps.randomuser.models.DataUser;
@@ -8,7 +8,7 @@ import org.modelmapper.ModelMapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.UserModel;
+import com.bernatgomez.apps.randomuser.models.UserModel;
 
 
 /**

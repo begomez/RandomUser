@@ -3,7 +3,6 @@ package com.bernatgomez.apps.randomuser.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
@@ -11,7 +10,7 @@ import com.bernatgomez.apps.randomuser.views.activs.BaseActivity;
 import com.bernatgomez.apps.randomuser.views.activs.DetailActivity;
 import com.bernatgomez.apps.randomuser.views.fragments.BaseFragment;
 
-import models.UserModel;
+import com.bernatgomez.apps.randomuser.models.UserModel;
 
 
 /**

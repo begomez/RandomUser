@@ -11,6 +11,7 @@
 
     tools:context="com.bernatgomez.apps.randomuser.views.activs.ListActivity">
 
+    <!-- FRAGMENT TRANSACTION CONTAINER -->
     <FrameLayout
         android:id="@+id/main_content"
 

@@ -2,8 +2,7 @@ package com.bernatgomez.apps.randomuser.mvp.view;
 
 import java.util.List;
 
-import models.ErrorModel;
-import models.UserModel;
+import com.bernatgomez.apps.randomuser.models.UserModel;
 
 /**
  * Created by bernatgomez on 08/09/2017.

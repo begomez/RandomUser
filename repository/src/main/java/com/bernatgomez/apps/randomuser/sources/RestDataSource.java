@@ -1,24 +1,13 @@
 package com.bernatgomez.apps.randomuser.sources;
 
 import com.bernatgomez.apps.randomuser.api.IRandomUserAPI;
-import com.bernatgomez.apps.randomuser.forms.GetUsersForm;
+import com.bernatgomez.apps.randomuser.forms.FormGetUsers;
 import com.bernatgomez.apps.randomuser.models.DataError;
 import com.bernatgomez.apps.randomuser.models.DataResponse;
-import com.bernatgomez.apps.randomuser.models.DataUser;
-import com.bernatgomez.apps.randomuser.utils.JavaLogger;
+
+import com.bernatgomez.apps.randomuser.models.JavaLogger;
 import com.squareup.otto.Bus;
 
-import org.reactivestreams.Subscription;
-
-import java.util.List;
-
-import javax.xml.crypto.Data;
-
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import rx.Subscriber;
 import rx.schedulers.Schedulers;
@@ -53,7 +42,7 @@ public class RestDataSource implements IDataSource {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void getUsers(GetUsersForm form) {
+    public void getUsers(FormGetUsers form) {
 
         this.api.getUsers(form.getResults())
 

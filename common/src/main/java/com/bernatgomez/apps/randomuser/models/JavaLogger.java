@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser.utils;
+package com.bernatgomez.apps.randomuser.models;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

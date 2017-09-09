@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser;
+package com.bernatgomez.apps.randomuser.application;
 
 import android.app.Application;
 

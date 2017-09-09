@@ -1,5 +1,6 @@
 package com.bernatgomez.apps.randomuser.views.fragments;
 
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 import com.f2prateek.dart.Dart;
 
 import butterknife.ButterKnife;
+
 
 /**
  * Base class fragment defining a common architecture
@@ -25,6 +27,11 @@ public class BaseFragment extends Fragment {
      * Layout identifier
      */
     protected int layoutId = 0;
+
+    /**
+     * Flag for data requests
+     */
+    protected boolean isFirstLoad = true;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,7 +97,13 @@ public class BaseFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        this.fetchData();
+        if (this.isFirstLoad) {
+            this.loadData();
+            this.isFirstLoad = false;
+
+        } else {
+            this.reloadData();
+        }
 
         AndroidLogger.logMsg(this.getClass().getSimpleName(), "onResume()");
 
@@ -118,7 +131,9 @@ public class BaseFragment extends Fragment {
     /**
      * Hook for data requests to REST repos (for instance)
      */
-    protected void fetchData() {}
+    protected void loadData() {}
+
+    protected void reloadData() {}
 
     protected void bindViews(View v) {
         ButterKnife.bind(this, v);

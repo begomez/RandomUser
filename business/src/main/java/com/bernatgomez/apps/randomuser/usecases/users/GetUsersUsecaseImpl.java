@@ -1,32 +1,33 @@
-package com.bernatgomez.apps.randomuser;
+package com.bernatgomez.apps.randomuser.usecases.users;
 
-import com.bernatgomez.apps.randomuser.forms.GetUsersForm;
+
+import com.bernatgomez.apps.randomuser.forms.FormGetUsers;
+import com.bernatgomez.apps.randomuser.mappers.ErrorMapper;
 import com.bernatgomez.apps.randomuser.models.DataError;
 import com.bernatgomez.apps.randomuser.models.DataResponse;
-import com.bernatgomez.apps.randomuser.models.DataUser;
 import com.bernatgomez.apps.randomuser.sources.RestDataSource;
-import com.bernatgomez.apps.randomuser.utils.DataMapper;
-import com.bernatgomez.apps.randomuser.utils.*;
-import com.bernatgomez.apps.randomuser.utils.JavaLogger;
+import com.bernatgomez.apps.randomuser.usecases.BaseUsecase;
+import com.bernatgomez.apps.randomuser.mappers.DataMapper;
+import com.bernatgomez.apps.randomuser.models.JavaLogger;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-import java.util.ArrayList;
 
 /**
+ * Random users usecase
+ *
  * Created by bernatgomez on 08/09/2017.
  */
+public class GetUsersUsecaseImpl extends BaseUsecase implements IGetUsersUsecase {
 
-public class ListUsecaseImpl extends BaseUsecase implements IListUsecase {
-
-    private static final String TAG = ListUsecaseImpl.class.getSimpleName();
+    private static final String TAG = GetUsersUsecaseImpl.class.getSimpleName();
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public ListUsecaseImpl(Bus bus, RestDataSource rest) {
+    public GetUsersUsecaseImpl(Bus bus, RestDataSource rest) {
         super(bus, rest);
     }
 
@@ -36,7 +37,7 @@ public class ListUsecaseImpl extends BaseUsecase implements IListUsecase {
 
     @Override
     public void performAction() {
-        GetUsersForm form = new GetUsersForm(5);
+        FormGetUsers form = new FormGetUsers(5);
 
         this.registerInBus();
 

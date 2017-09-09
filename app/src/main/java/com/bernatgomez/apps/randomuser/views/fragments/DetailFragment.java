@@ -1,7 +1,6 @@
 package com.bernatgomez.apps.randomuser.views.fragments;
 
 
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
@@ -13,10 +12,8 @@ import com.bernatgomez.apps.randomuser.utils.Constants;
 import com.f2prateek.dart.InjectExtra;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
 import butterknife.BindView;
-import models.UserModel;
+import com.bernatgomez.apps.randomuser.models.UserModel;
 
 
 /**

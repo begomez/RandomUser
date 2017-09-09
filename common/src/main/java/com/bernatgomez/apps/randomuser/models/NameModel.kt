@@ -1,4 +1,4 @@
-package models
+package com.bernatgomez.apps.randomuser.models
 
 /**
  * App abstraction for name elements

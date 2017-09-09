@@ -1,19 +1,17 @@
 package com.bernatgomez.apps.randomuser.mvp.presenter;
 
-import com.bernatgomez.apps.randomuser.IListUsecase;
-import com.bernatgomez.apps.randomuser.models.DataError;
+import com.bernatgomez.apps.randomuser.usecases.users.IGetUsersUsecase;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
-import models.ErrorModel;
-import models.UserModel;
+import com.bernatgomez.apps.randomuser.models.ErrorModel;
+import com.bernatgomez.apps.randomuser.models.UserModel;
 
 /**
  * Created by bernatgomez on 08/09/2017.
@@ -21,7 +19,7 @@ import models.UserModel;
 
 public class ListPresenter extends BasePresenter<IMVPListView> {
 
-    protected IListUsecase usecase;
+    protected IGetUsersUsecase usecase;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,7 +27,7 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Inject
-    public ListPresenter(Bus bus, IListUsecase usecase) {
+    public ListPresenter(Bus bus, IGetUsersUsecase usecase) {
         super(bus);
 
         this.usecase = usecase;

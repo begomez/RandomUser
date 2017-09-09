@@ -3,7 +3,6 @@ package com.bernatgomez.apps.randomuser.views.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -23,7 +22,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import models.UserModel;
+import com.bernatgomez.apps.randomuser.models.UserModel;
 
 
 /**
@@ -87,8 +86,8 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
     }
 
     @Override
-    protected void fetchData() {
-        super.fetchData();
+    protected void loadData() {
+        super.loadData();
 
         this.presenter.getRandomUsers();
     }
