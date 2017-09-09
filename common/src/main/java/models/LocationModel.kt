@@ -9,4 +9,9 @@ data class LocationModel constructor(
         var street : String, var city : String, var state : String) : BaseModel {
 
     constructor() : this("", "", "")
+
+    /**
+     *
+     */
+    fun getFullLocation() : String = this.street + " " + this.city + " " + this.state
 }

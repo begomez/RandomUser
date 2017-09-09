@@ -10,11 +10,4 @@ data class UserModel constructor(
         var picture: PictureModel, var location : LocationModel, var registered : String) : BaseModel {
 
     constructor() : this("", NameModel(), "", "", PictureModel(), LocationModel(), "")
-
-
-    /**
-     * Full name accessor
-     */
-    fun getFullName() : String = this.name.first + " " + this.name.last
-
 }

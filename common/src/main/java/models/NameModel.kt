@@ -9,4 +9,10 @@ data class NameModel constructor(
         var first : String, var last : String) : BaseModel {
 
     constructor() : this("", "")
+
+    /**
+     * Full name accessor
+     */
+    fun getFullName() : String = this.first + " " + this.last
+
 }
