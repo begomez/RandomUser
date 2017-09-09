@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.bernatgomez.apps.randomuser.R;
+
 import com.bernatgomez.apps.randomuser.dependencies.components.DaggerAppComponent;
 import com.bernatgomez.apps.randomuser.dependencies.components.DaggerListComponent;
 import com.bernatgomez.apps.randomuser.dependencies.modules.ListModule;
@@ -105,16 +106,6 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void showLoading() {
-        //TODO
-    }
-
-    @Override
-    public void hideLoading() {
-        //TODO
-    }
-
-    @Override
     public void onRandomUsersReceived(List<UserModel> users) {
         AndroidLogger.logMsg(TAG, "success");
 
@@ -130,6 +121,7 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 
     private void updateData(final List<UserModel> users) {
 
+        //XXX: run on uithread cause otto bus is not delivering in main thread
         this.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {

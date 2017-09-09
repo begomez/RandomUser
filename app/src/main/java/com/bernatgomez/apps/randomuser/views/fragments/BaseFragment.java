@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
+import com.bernatgomez.apps.randomuser.views.interfaces.ILoading;
 import com.f2prateek.dart.Dart;
 
 import butterknife.ButterKnife;
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
  *
  * Created by bernatgomez on 08/09/2017.
  */
-public class BaseFragment extends Fragment {
+public class BaseFragment extends Fragment implements ILoading {
 
     public static final String TAG = BaseFragment.class.getSimpleName();
 
@@ -33,6 +34,12 @@ public class BaseFragment extends Fragment {
      */
     protected boolean isFirstLoad = true;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
+    protected ILoading loadingCallback;
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // LIFECYCLE
@@ -42,6 +49,8 @@ public class BaseFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        this.saveLoadingCallback();
 
         this.injectDependencies();
     }
@@ -120,6 +129,26 @@ public class BaseFragment extends Fragment {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void showLoading() {
+        if (this.loadingCallback != null) {
+            this.loadingCallback.showLoading();
+        }
+    }
+
+    @Override
+    public void hideLoading() {
+        if (this.loadingCallback != null) {
+            this.loadingCallback.hideLoading();
+        }
+    }
+
+    protected void saveLoadingCallback() {
+        if (this.getActivity() instanceof ILoading) {
+            this.loadingCallback = (ILoading) this.getActivity();
+        }
+    }
 
     /**
      * Hook for Dagger injection

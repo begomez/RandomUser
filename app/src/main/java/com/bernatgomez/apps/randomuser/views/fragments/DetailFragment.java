@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
-import com.bernatgomez.apps.randomuser.mvp.view.IDetailView;
+import com.bernatgomez.apps.randomuser.mvp.view.IMVPBaseView;
 import com.bernatgomez.apps.randomuser.utils.Constants;
 import com.f2prateek.dart.InjectExtra;
 import com.squareup.picasso.Picasso;
@@ -21,7 +21,7 @@ import com.bernatgomez.apps.randomuser.models.UserModel;
  *
  * Created by bernatgomez on 09/09/2017.
  */
-public class DetailFragment extends BaseFragment implements IDetailView {
+public class DetailFragment extends BaseFragment implements IMVPBaseView {
 
     @Nullable
     @InjectExtra(Constants.EXTRA_USER)
@@ -63,8 +63,6 @@ public class DetailFragment extends BaseFragment implements IDetailView {
         super.onCreate(savedInstanceState);
 
         this.layoutId = R.layout.fragment_detail;
-
-
     }
 
     @Override
