@@ -2,7 +2,7 @@ apply plugin: 'java'
 
 ext {
     retrofit_version="2.3.0"
-    okhttp_version="3.1.2"
+    okhttp_version="3.6.0"
 }
 
 
