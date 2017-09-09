@@ -108,7 +108,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         }
 
         public void setData(UserModel user) {
-            Picasso.with(this.itemView.getContext()).load(user.getPicture().getThumbnail()).into(this.imgAvatar);
+            Picasso.with(this.itemView.getContext()).load(user.getPicture().getMedium()).into(this.imgAvatar);
             this.txtFullName.setText(user.getName().getFullName());
             this.txtEmail.setText(user.getEmail());
             this.txtPhone.setText(user.getPhone());
