@@ -32,6 +32,7 @@ ext {
     butter_version = "8.8.1"
     junit_version = "4.12"
     rxand_version = "2.0.1"
+    picasso_version="2.5.2"
 
 }
 
@@ -67,6 +68,10 @@ dependencies {
 
     // RX
     compile "io.reactivex.rxjava2:rxandroid:$rxand_version"
+
+    // PICASSO
+    compile "com.squareup.picasso:picasso:$picasso_version"
+
 
     // PROJECTS
     compile project(':repository')
