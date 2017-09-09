@@ -3,7 +3,11 @@ package com.bernatgomez.apps.randomuser.views.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.transition.Slide;
+import android.view.Gravity;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
@@ -14,8 +18,6 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import com.bernatgomez.apps.randomuser.models.UserModel;
-
-import java.text.SimpleDateFormat;
 
 
 /**
@@ -31,6 +33,9 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
 
     @BindView(R.id.item_avatar)
     protected ImageView imgAvatar;
+
+    @BindView(R.id.item_info_container)
+    protected LinearLayout infoContainer;
 
     @BindView(R.id.item_fullname)
     protected TextView txtName;
@@ -63,6 +68,13 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        this.launchEnterAnimation();
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -84,5 +96,15 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
             this.txtRegDate.setText(this.user.getRegistered());
 
         } catch (Exception e) {e.printStackTrace();}
+    }
+
+    private void launchEnterAnimation() {
+        Slide slide = new Slide(Gravity.BOTTOM);
+
+        slide.addTarget(R.id.item_info_container);
+        slide.setDuration(this.getResources().getInteger(R.integer.anim_duration));
+        slide.setInterpolator(new LinearInterpolator());
+
+        this.getActivity().getWindow().setEnterTransition(slide);
     }
 }

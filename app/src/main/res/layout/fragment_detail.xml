@@ -31,79 +31,79 @@
         android:layout_marginTop="@dimen/item_pad_horiz"
         />
 
-    <TextView
-        android:id="@+id/item_fullname"
+    <LinearLayout
+        android:id="@+id/item_info_container"
 
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        style="@style/DetailBody"
+        android:orientation="vertical"
 
-        tools:text="Gender"
-
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_avatar"
-
-         />
-
-    <TextView
-        android:id="@+id/item_gender"
-
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-
-        style="@style/DetailBody"
-
-        tools:text="Name Surname"
+        android:layout_margin="@dimen/item_pad_horiz"
 
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_fullname"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_avatar"
+        >
 
-         />
+        <TextView
+            android:id="@+id/item_fullname"
 
-    <TextView
-        android:id="@+id/item_location"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
 
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
+            style="@style/DetailBody"
 
-        style="@style/DetailBody"
+            tools:text="Gender"
+            />
 
-        tools:text="Location"
+        <TextView
+            android:id="@+id/item_gender"
 
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_gender"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
 
-         />
+            style="@style/DetailBody"
 
-    <TextView
-        android:id="@+id/item_mail"
+            tools:text="Name Surname"
+            />
 
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/item_location"
 
-        style="@style/DetailBody"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
 
-        tools:text="Mail"
+            style="@style/DetailBody"
 
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_location"
+            tools:text="Location"
 
-        />
+            />
 
-    <TextView
-        android:id="@+id/item_reg_date"
+        <TextView
+            android:id="@+id/item_mail"
 
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
 
-        style="@style/DetailBody"
+            style="@style/DetailBody"
 
-        tools:text="Mail"
+            tools:text="Mail"
 
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_mail"
+            />
 
-         />
+        <TextView
+            android:id="@+id/item_reg_date"
+
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+
+            style="@style/DetailBody"
+
+            tools:text="Mail"
+            />
+
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
