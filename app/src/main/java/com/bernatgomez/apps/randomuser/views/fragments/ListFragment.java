@@ -1,12 +1,18 @@
 package com.bernatgomez.apps.randomuser.views.fragments;
 
 
+import android.app.SearchManager;
+import android.app.Service;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
@@ -45,6 +51,8 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
     @BindView(android.R.id.empty)
     protected TextView txtEmpty;
 
+    protected SearchView searchView;
+
     protected ListAdapter adapter;
 
     @Inject
@@ -66,6 +74,8 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
         super.onCreate(savedInstanceState);
 
         this.layoutId = R.layout.fragment_list;
+
+        this.setHasOptionsMenu(true);
     }
 
     @Override
@@ -82,6 +92,62 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
         super.onStop();
 
         this.presenter.unregisterFromBus();
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// SEARCH
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.search_options, menu);
+
+        this.prepareSearch(menu);
+    }
+
+    private void prepareSearch(final Menu menu) {
+        SearchManager mgr = (SearchManager) this.getActivity().getSystemService(Service.SEARCH_SERVICE);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+
+
+        searchView.setSearchableInfo(mgr.getSearchableInfo(this.getActivity().getComponentName()));
+
+        searchView.setSubmitButtonEnabled(false);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                AndroidLogger.logMsg(TAG, "query: " + query);
+
+                searchView.setIconified(true);
+
+                menu.findItem(R.id.action_search).collapseActionView();
+
+                getActivity().invalidateOptionsMenu();
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
