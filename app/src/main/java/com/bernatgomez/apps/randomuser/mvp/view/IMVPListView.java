@@ -16,4 +16,5 @@ public interface IMVPListView extends IMVPBaseView {
     public void onRandomUsersError(String msg);
     public void resetScroll();
     public ListAdapter getAdapter();
+    public void disableUser(UserModel user);
 }

@@ -7,7 +7,7 @@ package com.bernatgomez.apps.randomuser.models
  */
 data class UserModel constructor(
         var gender : String, var name : NameModel, var email : String, var phone : String,
-        var picture: PictureModel, var location : LocationModel, var registered : String) : BaseModel {
+        var picture: PictureModel, var location : LocationModel, var registered : String, var disabled : Boolean) : BaseModel {
 
-    constructor() : this("", NameModel(), "", "", PictureModel(), LocationModel(), "")
+    constructor() : this("", NameModel(), "", "", PictureModel(), LocationModel(), "", false)
 }

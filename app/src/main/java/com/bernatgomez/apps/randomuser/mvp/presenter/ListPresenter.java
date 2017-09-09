@@ -70,6 +70,8 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
      * @param user
      */
     public void disableUser(UserModel user) {
+        this.view.disableUser(user);
+
         this.executor.execute(IExecutor.CmdType.DISABLE_USER, user);
     }
 
@@ -80,7 +82,9 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
 
     @Subscribe
     public void onOperationResult(DbTransactionResult result) {
-        AndroidLogger.logMsg(TAG, "onOperationSuccess()");
+        AndroidLogger.logMsg(TAG, "onOperationResult()" + result);
+
+        //XXX: do nothing for now...
     }
 
     @Subscribe

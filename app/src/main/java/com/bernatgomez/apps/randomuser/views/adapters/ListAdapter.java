@@ -165,6 +165,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
             this.txtFullName.setText(user.getName().getFullName());
             this.txtEmail.setText(user.getEmail());
             this.txtPhone.setText(user.getPhone());
+            this.imgAction.setVisibility(user.getDisabled()? View.INVISIBLE : View.VISIBLE);
         }
 
         @OnClick(R.id.item_avatar)

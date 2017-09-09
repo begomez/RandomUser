@@ -32,13 +32,13 @@ public class DbTransactionExecutor implements IExecutor {
     }
 
     @Override
-    public void execute(CmdType cmd, BaseModel user) {
-        AndroidLogger.logMsg(TAG, "execute(): " + cmd + " " + user);
+    public void execute(CmdType cmd, BaseModel model) {
+        AndroidLogger.logMsg(TAG, "execute(): " + cmd + " " + model);
 
         switch (cmd) {
 
             case DISABLE_USER:
-                new DbTransaction(cmd).execute((UserModel) user);
+                new DbTransaction(cmd).execute((UserModel) model);
                 break;
 
             default:
@@ -47,11 +47,12 @@ public class DbTransactionExecutor implements IExecutor {
     }
 
     /**
-     * Async task used to perform transaction on background
+     * Async task used to perform db transaction on background
      */
     final class DbTransaction extends AsyncTask<UserModel, Void, Boolean> {
 
         private CmdType type;
+        private UserModel target;
 
 
         public DbTransaction(CmdType type) {
@@ -59,7 +60,7 @@ public class DbTransactionExecutor implements IExecutor {
         }
 
         /**
-         * Get data model used in db transactions
+         * Get data target used in db transactions
          *
          * @param target
          * @return
@@ -78,9 +79,11 @@ public class DbTransactionExecutor implements IExecutor {
         protected Boolean doInBackground(UserModel... userModels) {
 
             try {
+                this.target = userModels[0];
+
                 RandomUserDatabase db = DbHolder.getInstance().getDb();
 
-                db.userDao().insertUser(this.getUserDbModelFrom(userModels[0]));
+                db.userDao().insertUser(this.getUserDbModelFrom(this.target));
 
                 return true;
 
