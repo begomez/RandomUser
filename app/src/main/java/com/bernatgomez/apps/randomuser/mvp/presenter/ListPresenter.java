@@ -1,5 +1,8 @@
 package com.bernatgomez.apps.randomuser.mvp.presenter;
 
+import com.bernatgomez.apps.randomuser.DbTransactionResult;
+import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;
+import com.bernatgomez.apps.randomuser.persist.transactions.DbTransactionExecutor;
 import com.bernatgomez.apps.randomuser.usecases.users.IGetUsersUsecase;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
@@ -21,16 +24,20 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
 
     protected IGetUsersUsecase usecase;
 
+    @Inject
+    protected DbTransactionExecutor executor;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTORS
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Inject
-    public ListPresenter(Bus bus, IGetUsersUsecase usecase) {
+    public ListPresenter(Bus bus, IGetUsersUsecase usecase, DbTransactionExecutor executor) {
         super(bus);
 
         this.usecase = usecase;
+
+        this.executor = executor;
     }
 
 
@@ -63,13 +70,18 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
      * @param user
      */
     public void disableUser(UserModel user) {
-
+        this.executor.execute(IExecutor.CmdType.DISABLE_USER, user);
     }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // SUBSCRIPTIONS
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Subscribe
+    public void onOperationResult(DbTransactionResult result) {
+        AndroidLogger.logMsg(TAG, "onOperationSuccess()");
+    }
 
     @Subscribe
     public void onSuccess(ArrayList<UserModel> data) {
