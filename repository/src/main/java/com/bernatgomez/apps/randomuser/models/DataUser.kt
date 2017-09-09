@@ -12,4 +12,6 @@ data class DataUser constructor(
         val nat : String
         ) {
 
+        constructor() : this("", DataName(), DataLocation(), "", DataLogin(), "", "", "", "", DataId(), DataPicture(), "")
+
 }

@@ -24,9 +24,10 @@ import rx.Subscriber;
 import rx.schedulers.Schedulers;
 
 /**
+ * Rest datasource implementation wrapping randomuser API operations
+ *
  * Created by bernatgomez on 08/09/2017.
  */
-
 public class RestDataSource implements IDataSource {
 
     private static final String TAG = RestDataSource.class.getSimpleName();
@@ -55,9 +56,12 @@ public class RestDataSource implements IDataSource {
     public void getUsers(GetUsersForm form) {
 
         this.api.getUsers(form.getResults())
+
             .subscribeOn(Schedulers.io())
             .observeOn(Schedulers.immediate())
+
             .subscribe(new Subscriber<DataResponse>() {
+
                @Override
                public void onCompleted() {
                    JavaLogger.logMsg(TAG, "onCompleted()");
@@ -67,14 +71,14 @@ public class RestDataSource implements IDataSource {
                public void onError(Throwable e) {
                    JavaLogger.logError(TAG, "onError()", e);
 
-                   RestDataSource.this.bus.post(new DataError(""));
+                   RestDataSource.this.bus.post(new DataError(e.getMessage()));
                }
 
                @Override
                public void onNext(DataResponse dataResponse) {
-                   RestDataSource.this.bus.post(new Boolean(true));
-
                    JavaLogger.logMsg(TAG, "onNext()");
+
+                   RestDataSource.this.bus.post(dataResponse);
                }
            });
     }

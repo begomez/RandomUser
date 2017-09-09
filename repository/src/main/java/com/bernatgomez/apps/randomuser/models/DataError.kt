@@ -6,6 +6,8 @@ package com.bernatgomez.apps.randomuser.models
  *
  * Created by bernatgomez on 08/09/2017.
  */
-class DataError(val msg: String) : DataBase {
+class DataError constructor(val msg: String) : DataBase {
+
+    constructor() : this("")
 
 }
