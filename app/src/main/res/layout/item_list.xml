@@ -35,6 +35,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
+        style="@style/ItemTitle"
+
         tools:text="Name Surname"
 
         app:layout_constraintTop_toTopOf="parent"
@@ -52,6 +54,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
+        style="@style/ItemSubtitle"
+
         tools:text="Mail"
 
         app:layout_constraintTop_toBottomOf="@id/item_fullname"
@@ -68,6 +72,8 @@
 
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+
+        style="@style/ItemBody"
 
         tools:text="Phone"
 

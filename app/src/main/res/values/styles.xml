@@ -17,4 +17,24 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="ItemTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="ItemSubtitle" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="ItemBody" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="DetailBody" parent="ItemBody">
+        <item name="android:paddingLeft">@dimen/item_pad_horiz</item>
+        <item name="android:paddingStart">@dimen/item_pad_horiz</item>
+        <item name="android:paddingTop">@dimen/item_pad_vert</item>
+    </style>
+
 </resources>

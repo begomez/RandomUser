@@ -15,6 +15,8 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import com.bernatgomez.apps.randomuser.models.UserModel;
 
+import java.text.SimpleDateFormat;
+
 
 /**
  * Detail screen fragment containing info about random users
@@ -42,6 +44,8 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
     @BindView(R.id.item_mail)
     protected TextView txtMail;
 
+    @BindView(R.id.item_reg_date)
+    protected TextView txtRegDate;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
@@ -69,10 +73,16 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
     protected void configViews() {
         super.configViews();
 
+        Picasso.with(this.getContext()).load(this.user.getPicture().getLarge()).into(this.imgAvatar);
+
         this.txtMail.setText(this.user.getEmail());
         this.txtGender.setText(this.user.getGender());
         this.txtLocation.setText(this.user.getLocation().getFullLocation());
         this.txtName.setText(this.user.getName().getFullName());
-        Picasso.with(this.getContext()).load(this.user.getPicture().getLarge()).into(this.imgAvatar);
+
+        try {
+            this.txtRegDate.setText(this.user.getRegistered());
+
+        } catch (Exception e) {e.printStackTrace();}
     }
 }

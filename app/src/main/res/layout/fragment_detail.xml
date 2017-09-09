@@ -30,38 +30,34 @@
         />
 
     <TextView
-        android:id="@+id/item_gender"
-
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-
-        tools:text="Gender"
-
-        android:gravity="left"
-
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_avatar"
-
-        android:layout_marginLeft="@dimen/item_pad_horiz"
-        android:layout_marginTop="@dimen/item_pad_vert"
-        android:layout_marginStart="@dimen/item_pad_horiz" />
-
-    <TextView
         android:id="@+id/item_fullname"
 
         android:layout_width="368dp"
         android:layout_height="wrap_content"
 
-        tools:text="Name Surname"
+        style="@style/DetailBody"
 
-        android:gravity="left"
+        tools:text="Gender"
 
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_gender"
+        app:layout_constraintTop_toBottomOf="@+id/item_avatar"
 
-        android:layout_marginLeft="@dimen/item_pad_horiz"
-        android:layout_marginTop="@dimen/item_pad_vert"
-        android:layout_marginStart="@dimen/item_pad_horiz" />
+         />
+
+    <TextView
+        android:id="@+id/item_gender"
+
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+
+        style="@style/DetailBody"
+
+        tools:text="Name Surname"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_fullname"
+
+         />
 
     <TextView
         android:id="@+id/item_location"
@@ -69,16 +65,14 @@
         android:layout_width="368dp"
         android:layout_height="wrap_content"
 
+        style="@style/DetailBody"
+
         tools:text="Location"
 
-        android:gravity="left"
-
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_fullname"
+        app:layout_constraintTop_toBottomOf="@+id/item_gender"
 
-        android:layout_marginLeft="@dimen/item_pad_horiz"
-        android:layout_marginTop="@dimen/item_pad_vert"
-        android:layout_marginStart="@dimen/item_pad_horiz" />
+         />
 
     <TextView
         android:id="@+id/item_mail"
@@ -86,15 +80,28 @@
         android:layout_width="368dp"
         android:layout_height="wrap_content"
 
-        tools:text="Mail"
+        style="@style/DetailBody"
 
-        android:gravity="left"
+        tools:text="Mail"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_location"
 
-        android:layout_marginLeft="@dimen/item_pad_horiz"
-        android:layout_marginTop="@dimen/item_pad_vert"
-        android:layout_marginStart="@dimen/item_pad_horiz" />
+        />
+
+    <TextView
+        android:id="@+id/item_reg_date"
+
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+
+        style="@style/DetailBody"
+
+        tools:text="Mail"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_mail"
+
+         />
 
 </android.support.constraint.ConstraintLayout>
