@@ -1,5 +1,6 @@
 package com.bernatgomez.apps.randomuser.utils;
 
+
 import com.bernatgomez.apps.randomuser.models.DataUser;
 
 import org.modelmapper.ModelMapper;
@@ -9,10 +10,12 @@ import java.util.List;
 
 import models.UserModel;
 
+
 /**
+ * Mapper to convert user api objects into user app objects
+ *
  * Created by bernatgomez on 09/09/2017.
  */
-
 public abstract class DataMapper {
 
     /**
@@ -38,5 +41,6 @@ public abstract class DataMapper {
      */
     private static UserModel mapUser(DataUser apiUser) {
         return new ModelMapper().map(apiUser, UserModel.class);
+
     }
 }

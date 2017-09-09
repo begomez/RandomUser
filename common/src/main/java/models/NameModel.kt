@@ -6,7 +6,7 @@ package models
  * Created by bernatgomez on 09/09/2017.
  */
 data class NameModel constructor(
-        val first : String, val last : String) : BaseModel {
+        var first : String, var last : String) : BaseModel {
 
     constructor() : this("", "")
 }

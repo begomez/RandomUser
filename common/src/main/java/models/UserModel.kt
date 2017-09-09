@@ -6,9 +6,15 @@ package models
  * Created by bernatgomez on 09/09/2017.
  */
 data class UserModel constructor(
-        val gender : String, val name : NameModel, val email : String, val phone : String,
-        val picture: PictureModel, val location : LocationModel, val registered : String) : BaseModel {
+        var gender : String, var name : NameModel, var email : String, var phone : String,
+        var picture: PictureModel, var location : LocationModel, var registered : String) : BaseModel {
 
     constructor() : this("", NameModel(), "", "", PictureModel(), LocationModel(), "")
+
+
+    /**
+     * Full name accessor
+     */
+    fun getFullName() : String = this.name.first + " " + this.name.last
 
 }

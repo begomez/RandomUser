@@ -6,7 +6,7 @@ package models
  * Created by bernatgomez on 09/09/2017.
  */
 data class ErrorModel constructor(
-        val msg : String) : BaseModel {
+        var msg : String) : BaseModel {
 
     constructor() : this("")
 }

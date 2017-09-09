@@ -6,7 +6,7 @@ package models
  * Created by bernatgomez on 09/09/2017.
  */
 data class LocationModel constructor(
-        val street : String, val city : String, val state : String) : BaseModel {
+        var street : String, var city : String, var state : String) : BaseModel {
 
     constructor() : this("", "", "")
 }
