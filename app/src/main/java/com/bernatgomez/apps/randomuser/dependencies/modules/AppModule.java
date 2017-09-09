@@ -18,6 +18,7 @@ import okhttp3.OkHttpClient;
 
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
@@ -42,6 +43,7 @@ public class AppModule {
             new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(client)
                     .build();
 
@@ -75,6 +77,6 @@ public class AppModule {
     @Singleton
     @Provides
     public Bus provideBus() {
-        return new Bus(ThreadEnforcer.MAIN);
+        return new Bus(ThreadEnforcer.ANY);
     }
 }
