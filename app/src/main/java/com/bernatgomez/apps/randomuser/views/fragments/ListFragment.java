@@ -33,6 +33,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import com.bernatgomez.apps.randomuser.models.UserModel;
+import com.bernatgomez.apps.randomuser.views.callback.ListComparator;
 
 
 /**
@@ -170,7 +171,7 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
     }
 
     private void configList() {
-        this.adapter = new ListAdapter(new ArrayList<UserModel>(), this);
+        this.adapter = new ListAdapter(new ArrayList<UserModel>(), this, new ListComparator());
 
         this.userList.setHasFixedSize(false);
         this.userList.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));

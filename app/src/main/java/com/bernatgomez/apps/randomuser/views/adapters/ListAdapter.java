@@ -1,6 +1,7 @@
 package com.bernatgomez.apps.randomuser.views.adapters;
 
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.util.SortedList;
 import android.support.v7.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -10,8 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
+import com.bernatgomez.apps.randomuser.views.callback.ListAdapterCallBack;
+import com.bernatgomez.apps.randomuser.views.callback.ListComparator;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -27,20 +31,31 @@ import com.bernatgomez.apps.randomuser.models.UserModel;
  */
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
 
-    private List<UserModel> data;
+    private SortedList<UserModel> data;
+
+    private ListComparator comparator;
 
     private OnImageListener listener;
 
 
     /**
      *
-     * @param data
+     * @param users
      */
-    public ListAdapter(List<UserModel> data, OnImageListener listener) {
-
-        this.data = data;
-
+    public ListAdapter(List<UserModel> users, OnImageListener listener, ListComparator comparator) {
         this.listener = listener;
+
+        this.comparator = comparator;
+
+        this.initData(users);
+    }
+
+    private void initData(List<UserModel> users) {
+        SortedList.Callback<UserModel> listCallback = new ListAdapterCallBack(this, this.comparator);
+
+        this.data = new SortedList<UserModel>(UserModel.class, listCallback);
+
+        this.addElements(users);
     }
 
     @Override
@@ -60,9 +75,45 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
     }
 
     public void resetAdapter(List<UserModel> users) {
-        this.data.addAll(users);
+        this.addElements(users);
+    }
 
-        this.notifyDataSetChanged();
+    private void addElements(List<UserModel> elements) {
+        this.data.addAll(elements);
+
+        //XXX: not needed, sorted list callback notifies changes to the adapter
+        //this.notifyDataSetChanged();
+    }
+
+    public void replaceElements(List<UserModel> candidates) {
+        this.data.beginBatchedUpdates();
+
+        for (int i = this.data.size() - 1; i >= 0; i--) {
+            UserModel current = this.data.get(i);
+
+            if (!candidates.contains(current)) {
+                this.data.remove(current);
+            }
+        }
+
+        this.addElements(candidates);
+
+        this.data.endBatchedUpdates();
+    }
+
+    public List<UserModel> filter(String query) {
+        List<UserModel> temp = new ArrayList<UserModel>();
+        for (int i = 0; i < this.data.size(); i++) {
+            UserModel current = this.data.get(i);
+
+            if (current.getName().toString().toLowerCase().contains(query)) {
+                temp.add(current);
+            }
+        }
+
+        this.replaceElements(temp);
+
+        return temp;
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

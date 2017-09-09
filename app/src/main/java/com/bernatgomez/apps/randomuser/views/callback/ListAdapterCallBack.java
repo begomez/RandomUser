@@ -12,7 +12,7 @@ import com.bernatgomez.apps.randomuser.models.UserModel;
  *
  * Created by bernatgomez on 09/09/2017.
  */
-public class ListCallBack extends SortedList.Callback<UserModel> {
+public class ListAdapterCallBack extends SortedList.Callback<UserModel> {
 
     private RecyclerView.Adapter adapter;
 
@@ -22,14 +22,10 @@ public class ListCallBack extends SortedList.Callback<UserModel> {
      *
      * @param adapter
      */
-    public ListCallBack(RecyclerView.Adapter adapter) {
+    public ListAdapterCallBack(RecyclerView.Adapter adapter, ListComparator comparator) {
         this.adapter = adapter;
 
-        this.initComponents();
-    }
-
-    private void initComponents() {
-        this.comparator = new ListComparator();
+        this.comparator = comparator;
     }
 
     @Override
