@@ -4,6 +4,8 @@ package com.bernatgomez.apps.randomuser.dependencies.modules;
 import com.bernatgomez.apps.randomuser.BuildConfig;
 import com.bernatgomez.apps.randomuser.sources.IDataSource;
 import com.bernatgomez.apps.randomuser.sources.RestDataSource;
+import com.bernatgomez.apps.randomuser.persist.transactions.DbTransactionExecutor;
+import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;
 import com.squareup.otto.Bus;
 import com.squareup.otto.ThreadEnforcer;
 
@@ -23,10 +25,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
+ * Module that provides application level depedencies
+ *
  * Created by bernatgomez on 07/09/2017.
  */
 @Module
 public class AppModule {
+
+    @Singleton
+    @Provides
+    public IExecutor provideExecutor(Bus bus) {
+        return new DbTransactionExecutor(bus);
+    }
 
     @Singleton
     @Provides

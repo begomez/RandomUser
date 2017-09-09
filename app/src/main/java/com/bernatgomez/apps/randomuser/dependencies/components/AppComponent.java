@@ -12,6 +12,8 @@ import dagger.Component;
 
 
 /**
+ * Application level component that publishes with objects can be reached globally
+ *
  * Created by bernatgomez on 07/09/2017.
  */
 @Singleton

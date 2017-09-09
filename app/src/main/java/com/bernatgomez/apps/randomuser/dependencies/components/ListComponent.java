@@ -9,12 +9,12 @@ import dagger.Component;
 
 
 /**
+ * Usecase level component used to indicate in which classes depedency injection takes place
+ *
  * Created by bernatgomez on 08/09/2017.
  */
 @PerActivity
 @Component(dependencies = {AppComponent.class}, modules=ListModule.class)
 public interface ListComponent {
-    //public ListPresenter getListPresenter();
-
     public void inject(ListFragment fragment);
 }
