@@ -3,9 +3,11 @@ package com.bernatgomez.apps.randomuser.views.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
 
@@ -18,6 +20,7 @@ import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 import com.bernatgomez.apps.randomuser.utils.Navigator;
 import com.bernatgomez.apps.randomuser.views.adapters.ListAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -33,11 +36,16 @@ import com.bernatgomez.apps.randomuser.models.UserModel;
  */
 public class ListFragment extends BaseFragment implements IMVPListView, ListAdapter.OnImageListener {
 
-    @BindView(R.id.list)
+    @BindView(R.id.swipe_container)
+    protected SwipeRefreshLayout swipeContainer;
+
+    @BindView(android.R.id.list)
     protected RecyclerView userList;
 
     @BindView(android.R.id.empty)
-    protected View txtEmpty;
+    protected TextView txtEmpty;
+
+    protected ListAdapter adapter;
 
     @Inject
     protected ListPresenter presenter;
@@ -82,14 +90,35 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 
     @Override
     protected void configViews() {
+        this.configList();
+        this.configSwipe();
+    }
+
+    private void configSwipe() {
+        this.swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getUsers();
+            }
+        });
+    }
+
+    private void configList() {
+        this.adapter = new ListAdapter(new ArrayList<UserModel>(), this);
+
         this.userList.setHasFixedSize(false);
         this.userList.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
+        this.userList.setAdapter(this.adapter);
     }
 
     @Override
     protected void loadData() {
         super.loadData();
 
+        this.getUsers();
+    }
+
+    private void getUsers() {
         this.presenter.getRandomUsers();
     }
 
@@ -107,7 +136,6 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 
     @Override
     public void onRandomUsersReceived(List<UserModel> users) {
-        AndroidLogger.logMsg(TAG, "success");
 
         this.updateData(users);
 
@@ -115,7 +143,7 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 
     @Override
     public void onRandomUsersError(String msg) {
-        AndroidLogger.logError(TAG, msg, null);
+        this.txtEmpty.setText(msg);
 
     }
 
@@ -125,7 +153,9 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
         this.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                ListFragment.this.userList.setAdapter(new ListAdapter(users, ListFragment.this));
+                ListFragment.this.swipeContainer.setRefreshing(false);
+
+                ListFragment.this.adapter.resetAdapter(users);
             }
         });
     }

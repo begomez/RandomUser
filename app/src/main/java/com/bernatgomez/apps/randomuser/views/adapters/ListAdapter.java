@@ -59,7 +59,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         return data != null? data.size() : 0;
     }
 
-    public void resetAdapter() {
+    public void resetAdapter(List<UserModel> users) {
+        this.data.addAll(users);
+
         this.notifyDataSetChanged();
     }
 
