@@ -240,7 +240,16 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void onImageClick(UserModel user) {
+    public void onUserSelected(UserModel user) {
+        AndroidLogger.logMsg(TAG, "onUserSelected()");
+
         Navigator.launchDetail(this.getContext(), user);
+    }
+
+    @Override
+    public void onUserDisabled(UserModel user) {
+        AndroidLogger.logMsg(TAG, "onUserDisabled");
+
+        this.presenter.disableUser(user);
     }
 }

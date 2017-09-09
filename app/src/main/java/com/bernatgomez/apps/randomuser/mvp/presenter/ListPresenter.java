@@ -37,16 +37,33 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // API
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Fetch users from remote repo
+     */
     public void getRandomUsers() {
         this.getView().showLoading();
 
         this.usecase.performAction();
     }
 
+    /**
+     * Filter users according to user entered query
+     * @param query
+     */
     public void filterUsers(String query) {
         this.view.getAdapter().filter(query);
 
         this.view.resetScroll();
+    }
+
+    /**
+     * Disable item when user selects the corresponding action
+     *
+     * @param user
+     */
+    public void disableUser(UserModel user) {
+
     }
 
 

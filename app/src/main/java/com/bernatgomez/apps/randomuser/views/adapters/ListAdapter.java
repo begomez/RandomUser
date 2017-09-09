@@ -20,6 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import com.bernatgomez.apps.randomuser.models.UserModel;
 
@@ -123,7 +124,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
     /**
      * List view holder
      */
-    final class ListHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    final class ListHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.item_container)
         protected ConstraintLayout container;
@@ -140,6 +141,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         @BindView(R.id.item_phone)
         protected TextView txtPhone;
 
+        @BindView(R.id.item_action)
+        protected ImageView imgAction;
+
 
         /**
          * Constructor
@@ -154,8 +158,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
 
         private void init() {
             ButterKnife.bind(this, this.itemView);
-
-            this.imgAvatar.setOnClickListener(this);
         }
 
         public void setData(UserModel user) {
@@ -165,10 +167,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
             this.txtPhone.setText(user.getPhone());
         }
 
-        @Override
-        public void onClick(View view) {
+        @OnClick(R.id.item_avatar)
+        public void onImgClick(View view) {
             if (listener != null) {
-                listener.onImageClick(data.get(this.getAdapterPosition()));
+                listener.onUserSelected(data.get(this.getAdapterPosition()));
+            }
+        }
+
+        @OnClick(R.id.item_action)
+        public void onActionClick(View view) {
+            if (listener != null) {
+                listener.onUserDisabled(data.get(this.getAdapterPosition()));
             }
         }
     }
@@ -181,7 +190,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
      *
      */
     public interface OnImageListener {
-        public void onImageClick(UserModel user);
+        public void onUserSelected(UserModel user);
+        public void onUserDisabled(UserModel user);
     }
 
 }

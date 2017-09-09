@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="item_img_w">90dp</dimen>
-    <dimen name="item_pad_left">@dimen/item_img_w</dimen>
+    <dimen name="item_img_side">56dp</dimen>
+    <dimen name="item_pad_left">@dimen/item_img_side</dimen>
     <dimen name="item_pad_vert">16dp</dimen>
     <dimen name="item_pad_horiz">16dp</dimen>
 
