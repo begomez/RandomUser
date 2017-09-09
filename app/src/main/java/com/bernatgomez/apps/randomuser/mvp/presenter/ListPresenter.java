@@ -56,7 +56,7 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
 
         this.getView().hideLoading();
 
-        this.getView().onRandomUsersReceived();
+        this.getView().onRandomUsersReceived(data);
     }
 
     @Subscribe
@@ -65,7 +65,7 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
 
         this.getView().hideLoading();
 
-        this.getView().onRandomUsersError();
+        this.getView().onRandomUsersError(error.getMsg());
     }
 
 }

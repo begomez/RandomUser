@@ -3,7 +3,10 @@ package com.bernatgomez.apps.randomuser.views.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.TextView;
+import android.support.annotation.UiThread;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.bernatgomez.apps.randomuser.R;
 import com.bernatgomez.apps.randomuser.dependencies.components.DaggerAppComponent;
@@ -12,22 +15,32 @@ import com.bernatgomez.apps.randomuser.dependencies.modules.ListModule;
 import com.bernatgomez.apps.randomuser.mvp.presenter.ListPresenter;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
+import com.bernatgomez.apps.randomuser.views.adapters.ListAdapter;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import models.UserModel;
 
 
 /**
+ * Main screen fragment showing a list of items
+ *
  * Created by bernatgomez on 08/09/2017.
  */
-public class ListFragment extends BaseFragment implements IMVPListView {
+public class ListFragment extends BaseFragment implements IMVPListView, ListAdapter.OnImageListener {
 
-    @BindView(R.id.txtSample)
-    protected TextView txtSample;
+    @BindView(R.id.list)
+    protected RecyclerView userList;
+
+    @BindView(android.R.id.empty)
+    protected View txtEmpty;
 
     @Inject
     protected ListPresenter presenter;
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
@@ -65,6 +78,13 @@ public class ListFragment extends BaseFragment implements IMVPListView {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    protected void configViews() {
+        this.userList.setHasFixedSize(false);
+        this.userList.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
+    }
+
     @Override
     protected void fetchData() {
         super.fetchData();
@@ -95,14 +115,35 @@ public class ListFragment extends BaseFragment implements IMVPListView {
     }
 
     @Override
-    public void onRandomUsersReceived() {
-        AndroidLogger.logMsg(TAG, "succcess");
-        //TODO
+    public void onRandomUsersReceived(List<UserModel> users) {
+        AndroidLogger.logMsg(TAG, "success");
+
+        this.updateData(users);
+
     }
 
     @Override
-    public void onRandomUsersError() {
-        AndroidLogger.logError(TAG, "error", null);
-        //TODO
+    public void onRandomUsersError(String msg) {
+        AndroidLogger.logError(TAG, msg, null);
+
+    }
+
+    private void updateData(final List<UserModel> users) {
+
+        this.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                ListFragment.this.userList.setAdapter(new ListAdapter(users, ListFragment.this));
+            }
+        });
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// INTERFACE IMPL
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void onImageClick() {
+        AndroidLogger.logMsg(TAG, "click");
     }
 }

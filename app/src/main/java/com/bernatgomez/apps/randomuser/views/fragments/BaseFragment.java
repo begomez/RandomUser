@@ -46,6 +46,8 @@ public class BaseFragment extends Fragment {
 
         this.bindViews(v);
 
+        this.configViews();
+
         return v;
     }
 
@@ -107,6 +109,8 @@ public class BaseFragment extends Fragment {
     protected void bindViews(View v) {
         ButterKnife.bind(this, v);
     }
+
+    protected void configViews() {}
 
     public String getIdentifier() {
         return this.getClass().getName();
