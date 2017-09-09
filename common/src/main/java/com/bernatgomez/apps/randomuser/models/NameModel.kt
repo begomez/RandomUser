@@ -13,6 +13,6 @@ data class NameModel constructor(
     /**
      * Full name accessor
      */
-    fun getFullName() : String = this.first + " " + this.last
+    fun getFullName() : String = this.first.capitalize() + " " + this.last.capitalize()
 
 }

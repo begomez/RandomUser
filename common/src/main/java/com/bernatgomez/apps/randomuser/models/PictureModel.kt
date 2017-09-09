@@ -6,7 +6,7 @@ package com.bernatgomez.apps.randomuser.models
  * Created by bernatgomez on 09/09/2017.
  */
 data class PictureModel constructor(
-        var medium : String, var thumbnail : String) : BaseModel {
+        var large : String, var medium : String, var thumbnail : String) : BaseModel {
 
-    constructor() : this("", "")
+    constructor() : this("", "", "")
 }

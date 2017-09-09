@@ -13,5 +13,5 @@ data class LocationModel constructor(
     /**
      *
      */
-    fun getFullLocation() : String = this.street + " " + this.city + " " + this.state
+    fun getFullLocation() : String = this.street.capitalize() + ". " + this.city.capitalize() + ". " + this.state.capitalize()
 }
