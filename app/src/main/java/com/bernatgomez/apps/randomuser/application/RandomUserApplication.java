@@ -12,8 +12,6 @@ public class RandomUserApplication extends Application {
 
     private static final String TAG = RandomUserApplication.class.getSimpleName();
 
-    private RoomDatabase database;
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // LIFE CYCLE
@@ -48,14 +46,6 @@ public class RandomUserApplication extends Application {
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// HELPERS
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public boolean isDbCreated() {
-        return this.database != null;
-    }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
 // INNER CLASSES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -69,8 +59,10 @@ public class RandomUserApplication extends Application {
             AndroidLogger.logMsg(TAG, "doInBackground()");
 
             try {
-                database =
-                    Room.databaseBuilder(getApplicationContext(), RandomUserDatabase.class, RandomUserDatabase.DB_NAME).build();
+
+                //XXX: retrieve DB and store it on holder
+                DbHolder.getInstance().setDb(
+                    Room.databaseBuilder(getApplicationContext(), RandomUserDatabase.class, RandomUserDatabase.DB_NAME).build());
 
                 return true;
 
