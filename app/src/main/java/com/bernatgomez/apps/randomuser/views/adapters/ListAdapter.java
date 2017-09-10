@@ -95,6 +95,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         //this.notifyDataSetChanged();
     }
 
+    public void removeElement(UserModel user) {
+        this.data.remove(user);
+    }
+
     public void replaceElements(List<UserModel> candidates) {
         this.data.beginBatchedUpdates();
 
@@ -181,7 +185,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
             this.txtFullName.setText(TextUtils.capitalizeSentence(user.getName().getFullName()));
             this.txtEmail.setText(user.getEmail());
             this.txtPhone.setText(user.getPhone());
-            this.imgAction.setVisibility(user.getDisabled()? View.INVISIBLE : View.VISIBLE);
         }
 
         private Transformation getTransformation() {

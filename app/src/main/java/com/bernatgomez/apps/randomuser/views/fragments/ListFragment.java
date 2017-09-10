@@ -249,6 +249,8 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
     public void disableUser(UserModel user) {
         user.setDisabled(true);
 
+        this.adapter.removeElement(user);
+
         this.adapter.notifyDataSetChanged();
     }
 
