@@ -39,7 +39,7 @@ public abstract class DataMapper {
      * @param apiUser
      * @return
      */
-    private static UserModel mapUser(DataUser apiUser) {
+    public static UserModel mapUser(DataUser apiUser) {
         return new ModelMapper().map(apiUser, UserModel.class);
 
     }
