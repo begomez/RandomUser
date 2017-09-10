@@ -18,6 +18,16 @@ android {
         }
     }
 
+    productFlavors {
+        mock {
+            applicationIdSuffix ".mock"
+        }
+
+        prod {
+
+        }
+    }
+
     // avoid duplicated file
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
@@ -26,8 +36,8 @@ android {
 
 ext {
     espresso_version = "2.2.2"
-    support_version = "26.+"
-    compat_version = "26.+"
+    support_version = "26.0.1"
+    compat_version = "26.0.1"
     constraint_version = "1.0.2"
     butter_version = "8.8.1"
     junit_version = "4.12"
@@ -36,6 +46,8 @@ ext {
     dart_version="+"
     room_version="1.0.0-alpha9"
     round_img_version="2.3.0"
+    support_test_version = "1.0.0"
+    espresso_version="2.2.2"
 
 }
 
@@ -84,9 +96,15 @@ dependencies {
 
     // TEST
     testCompile "junit:junit:$junit_version"
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$espresso_version", {
+        exclude group: "com.android.support', module: 'support-annotations"
     })
+
+
+
+    androidTestCompile "com.android.support:support-annotations:$support_version"
+    androidTestCompile "com.android.support.test:runner:$support_test_version"
+    androidTestCompile "com.android.support.test:rules:$support_test_version"
 
     // PROJECTS
     compile project(':data')
