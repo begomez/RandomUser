@@ -1,17 +1,16 @@
 package com.bernatgomez.apps.randomuser.mvp.presenter.interfaces;
 
+
+import com.bernatgomez.apps.randomuser.interfaces.IBusClient;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPBaseView;
+
 
 /**
  * Common interface for presenter classes
  *
  * Created by bernatgomez on 09/09/2017.
  */
-public interface IPresenter<T extends IMVPBaseView> {
-
-    public void registerInBus();
-
-    public void unregisterFromBus();
+public interface IPresenter<T extends IMVPBaseView> extends IBusClient {
 
     public void attachView(T view);
 
