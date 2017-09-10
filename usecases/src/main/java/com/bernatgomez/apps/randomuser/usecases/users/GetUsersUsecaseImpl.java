@@ -7,9 +7,8 @@ import com.bernatgomez.apps.randomuser.models.DataError;
 import com.bernatgomez.apps.randomuser.models.DataResponse;
 import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
 import com.bernatgomez.apps.randomuser.usecases.core.BaseUsecase;
-import com.bernatgomez.apps.randomuser.mappers.DataMapper;
+import com.bernatgomez.apps.randomuser.mappers.UserMapper;
 import com.bernatgomez.apps.randomuser.models.JavaLogger;
-import com.bernatgomez.apps.randomuser.usecases.core.IBaseUsecase;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
@@ -53,7 +52,7 @@ public class GetUsersUsecaseImpl extends BaseUsecase {
     public void onSuccess(DataResponse data) {
         JavaLogger.logMsg(TAG, data.toString());
 
-        this.bus.post(DataMapper.mapUsers(data.getResults()));
+        this.bus.post(UserMapper.mapUsers(data.getResults()));
 
         this.unregisterFromBus();
     }

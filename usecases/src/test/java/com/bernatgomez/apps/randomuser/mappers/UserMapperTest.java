@@ -39,7 +39,7 @@ public class UserMapperTest {
     public void testMapUser() {
         //XXX: fixture already done
 
-        UserModel result = DataMapper.mapUser(input);
+        UserModel result = UserMapper.mapUser(input);
 
         Assert.assertEquals(this.expected, result);
         Assert.assertTrue(this.expected.equals(result));

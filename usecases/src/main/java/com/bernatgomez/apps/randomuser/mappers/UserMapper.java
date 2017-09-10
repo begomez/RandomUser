@@ -16,7 +16,7 @@ import com.bernatgomez.apps.randomuser.models.UserModel;
  *
  * Created by bernatgomez on 09/09/2017.
  */
-public abstract class DataMapper {
+public abstract class UserMapper {
 
     /**
      * Map list of user from API to APP model
@@ -27,7 +27,7 @@ public abstract class DataMapper {
         List<UserModel> appUsers = new ArrayList<>();
 
         for (DataUser user : apiUsers) {
-            appUsers.add(DataMapper.mapUser(user));
+            appUsers.add(UserMapper.mapUser(user));
         }
 
         return appUsers;
