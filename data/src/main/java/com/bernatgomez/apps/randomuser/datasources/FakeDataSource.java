@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser.sources;
+package com.bernatgomez.apps.randomuser.datasources;
 
 import com.bernatgomez.apps.randomuser.forms.FormGetUsers;
 import com.bernatgomez.apps.randomuser.models.DataId;
@@ -8,7 +8,7 @@ import com.bernatgomez.apps.randomuser.models.DataName;
 import com.bernatgomez.apps.randomuser.models.DataPicture;
 import com.bernatgomez.apps.randomuser.models.DataResponse;
 import com.bernatgomez.apps.randomuser.models.DataUser;
-import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
+import com.bernatgomez.apps.randomuser.datasources.interfaces.IDataSource;
 import com.squareup.otto.Bus;
 
 import java.util.ArrayList;

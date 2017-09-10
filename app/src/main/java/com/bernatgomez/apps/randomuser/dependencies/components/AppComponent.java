@@ -1,7 +1,7 @@
 package com.bernatgomez.apps.randomuser.dependencies.components;
 
 
-import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
+import com.bernatgomez.apps.randomuser.datasources.interfaces.IDataSource;
 import com.bernatgomez.apps.randomuser.dependencies.modules.AppModule;
 import com.squareup.otto.Bus;
 

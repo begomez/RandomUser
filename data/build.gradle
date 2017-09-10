@@ -5,6 +5,7 @@ ext {
     retrofit_version="2.3.0"
     okhttp_version="3.6.0"
     rx_version="2.0.7"
+    mockito_version = "1.10.19"
 }
 
 repositories {
@@ -33,6 +34,11 @@ dependencies {
 
     // RXJAVA
     compile "io.reactivex.rxjava2:rxjava:$rx_version"
+
+    // TEST
+    testCompile "junit:junit:$junit_version"
+    testCompile "org.mockito:mockito-core:$mockito_version"
+
 
     // PROJECTS
     compile project (":common")

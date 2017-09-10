@@ -1,8 +1,8 @@
 package com.bernatgomez.apps.randomuser.usecases.users;
 
 
-import com.bernatgomez.apps.randomuser.sources.FakeDataSource;
-import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
+import com.bernatgomez.apps.randomuser.datasources.FakeDataSource;
+import com.bernatgomez.apps.randomuser.datasources.interfaces.IDataSource;
 import com.bernatgomez.apps.randomuser.usecases.core.IBaseUsecase;
 import com.squareup.otto.Bus;
 import com.squareup.otto.ThreadEnforcer;

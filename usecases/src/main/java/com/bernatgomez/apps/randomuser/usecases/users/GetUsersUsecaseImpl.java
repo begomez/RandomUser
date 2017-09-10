@@ -5,7 +5,7 @@ import com.bernatgomez.apps.randomuser.forms.FormGetUsers;
 import com.bernatgomez.apps.randomuser.mappers.ErrorMapper;
 import com.bernatgomez.apps.randomuser.models.DataError;
 import com.bernatgomez.apps.randomuser.models.DataResponse;
-import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
+import com.bernatgomez.apps.randomuser.datasources.interfaces.IDataSource;
 import com.bernatgomez.apps.randomuser.usecases.core.BaseUsecase;
 import com.bernatgomez.apps.randomuser.mappers.UserMapper;
 import com.bernatgomez.apps.randomuser.models.JavaLogger;
