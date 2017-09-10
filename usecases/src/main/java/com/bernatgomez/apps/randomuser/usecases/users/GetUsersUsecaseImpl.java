@@ -6,9 +6,10 @@ import com.bernatgomez.apps.randomuser.mappers.ErrorMapper;
 import com.bernatgomez.apps.randomuser.models.DataError;
 import com.bernatgomez.apps.randomuser.models.DataResponse;
 import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
-import com.bernatgomez.apps.randomuser.usecases.BaseUsecase;
+import com.bernatgomez.apps.randomuser.usecases.core.BaseUsecase;
 import com.bernatgomez.apps.randomuser.mappers.DataMapper;
 import com.bernatgomez.apps.randomuser.models.JavaLogger;
+import com.bernatgomez.apps.randomuser.usecases.core.IBaseUsecase;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
@@ -18,7 +19,7 @@ import com.squareup.otto.Subscribe;
  *
  * Created by bernatgomez on 08/09/2017.
  */
-public class GetUsersUsecaseImpl extends BaseUsecase implements IGetUsersUsecase {
+public class GetUsersUsecaseImpl extends BaseUsecase {
 
     private static final String TAG = GetUsersUsecaseImpl.class.getSimpleName();
 
@@ -37,7 +38,7 @@ public class GetUsersUsecaseImpl extends BaseUsecase implements IGetUsersUsecase
 
     @Override
     public void performAction() {
-        FormGetUsers form = new FormGetUsers(5);
+        FormGetUsers form = new FormGetUsers();
 
         this.registerInBus();
 
