@@ -39,10 +39,10 @@ public class ListPresenterTest {
     protected Bus bus;
 
     @Inject
-    IBaseUsecase usecase;
+    protected IBaseUsecase usecase;
 
     @Inject
-    DbTransactionExecutor exec;
+    protected DbTransactionExecutor exec;
 
     /**
      * Class instance under test
@@ -57,7 +57,6 @@ public class ListPresenterTest {
         this.createClassUnderTest();
     }
 
-    //FIXME: mockito not injecting
     private void injectWithMockito() {
         MockitoAnnotations.initMocks(this);
     }

@@ -65,10 +65,6 @@ LOOK & FEEL
 
 Images, icons, styles and UI should be polished :)
 
-KNOWN BUGS
-----------
-
-Mockito is NOT injecting dependencies in the tests defined in the presentation layer. It's marked as a FIXME
 
 FLAVORS
 -------

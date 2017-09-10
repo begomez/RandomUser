@@ -53,6 +53,7 @@ ext {
     support_test_version = "1.0.0"
     espresso_version="2.2.2"
     mockito_version = "1.10.19"
+    mockito_and_version = "2.7.22"
     power_version = "1.6.2"
     hamcrest_version = "1.3"
 }
@@ -109,18 +110,13 @@ dependencies {
     androidTestCompile "com.android.support:support-annotations:$support_version"
     androidTestCompile "com.android.support.test:runner:$support_test_version"
     androidTestCompile "com.android.support.test:rules:$support_test_version"
-
-    // Instrumentation
-    androidTestCompile "org.mockito:mockito-core:$mockito_version"
+    androidTestCompile "org.mockito:mockito-android:$mockito_and_version"
     androidTestCompile "org.hamcrest:hamcrest-all:$hamcrest_version"
 
     // JVM
+    testCompile "org.mockito:mockito-core:$mockito_version"
     testCompile "org.powermock:powermock-module-junit4:$power_version"
     testCompile "org.powermock:powermock-api-mockito:$power_version"
-
-    // Instrumentation
-    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
-    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 
     // PROJECTS
     compile project(':data')
