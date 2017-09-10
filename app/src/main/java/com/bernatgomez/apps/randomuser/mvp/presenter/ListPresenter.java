@@ -1,6 +1,7 @@
 package com.bernatgomez.apps.randomuser.mvp.presenter;
 
 import com.bernatgomez.apps.randomuser.models.DbTransactionResult;
+import com.bernatgomez.apps.randomuser.persist.holder.DiscardedUsersHolder;
 import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;
 import com.bernatgomez.apps.randomuser.persist.transactions.DbTransactionExecutor;
 import com.bernatgomez.apps.randomuser.usecases.users.IGetUsersUsecase;
@@ -71,6 +72,8 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
      * @param user
      */
     public void disableUser(UserModel user) {
+        DiscardedUsersHolder.getInstance().addDiscardedUser(user);
+
         this.view.disableUser(user);
 
         this.executor.execute(IExecutor.CmdType.DISABLE_USER, user);
