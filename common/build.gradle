@@ -13,6 +13,10 @@ dependencies {
 
     // MAPPER
     compile "org.modelmapper:modelmapper:$mapper_version"
+
+    // JUNIT
+    testCompile "junit:junit:$junit_version"
+
 }
 
 sourceCompatibility = "1.7"

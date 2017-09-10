@@ -6,6 +6,9 @@ dependencies {
     // OTTO
     compile "com.squareup:otto:$otto_version"
 
+    // JUNIT
+    testCompile "junit:junit:$junit_version"
+
     // PROJECTS
     compile project (':data')
     compile project (":common")
