@@ -10,4 +10,8 @@ data class UserModel constructor(
         var picture: PictureModel, var location : LocationModel, var registered : String, var disabled : Boolean) : BaseModel {
 
     constructor() : this("", NameModel(), "", "", PictureModel(), LocationModel(), "", false)
+
+    fun matchesCriteria(criteria : String) : Boolean
+        = this.name.toString().toLowerCase().contains(criteria.toLowerCase())
+            || this.email.toLowerCase().contains(criteria.toLowerCase())
 }

@@ -116,7 +116,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         for (int i = 0; i < this.data.size(); i++) {
             UserModel current = this.data.get(i);
 
-            if (current.getName().toString().toLowerCase().contains(query.toLowerCase())) {
+            if (current.matchesCriteria(query)) {
                 temp.add(current);
             }
         }

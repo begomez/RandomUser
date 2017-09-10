@@ -60,6 +60,7 @@ public class ListPresenterTest {
         this.createClassUnderTest();
     }
 
+    //FIXME: mockito not injecting
     private void injectWithMockito() {
         MockitoAnnotations.initMocks(this);
     }

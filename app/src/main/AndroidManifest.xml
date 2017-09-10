@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bernatgomez.apps.randomuser">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +19,9 @@
         <!-- LIST -->
         <activity android:name=".views.activs.ListActivity">
 
-            <meta-data android:name="android.app.searchable"
+            <!-- Search meta -->
+            <meta-data
+                android:name="android.app.searchable"
                 android:resource="@xml/search_metadata" />
 
             <intent-filter>
@@ -24,6 +29,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <!-- DETAIL -->
