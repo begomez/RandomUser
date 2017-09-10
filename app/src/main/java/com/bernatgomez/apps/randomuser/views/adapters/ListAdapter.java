@@ -37,11 +37,15 @@ import com.squareup.picasso.Transformation;
  */
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
 
+    enum ListMode {NORMAL, FILTER};
+
     private SortedList<UserModel> data;
 
     private ListComparator comparator;
 
     private OnItemInteraction listener;
+
+    private ListMode mode;
 
 
     /**
@@ -197,6 +201,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
                 listener.onUserDisabled(data.get(this.getAdapterPosition()));
             }
         }
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// ACCESSORS
+////////////////////////////////////////////////////////////////////////////////////////////////////
+    public ListMode getMode() {
+        return mode;
+    }
+
+    public void setMode(ListMode mode) {
+        this.mode = mode;
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
