@@ -27,8 +27,6 @@
         app:layout_constraintRight_toRightOf="parent"
 
         android:transitionName="@string/shared_transition"
-
-        android:background="@color/colorPrimary"
         />
 
     <LinearLayout

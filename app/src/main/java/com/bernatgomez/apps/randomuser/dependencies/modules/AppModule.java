@@ -42,7 +42,7 @@ public class AppModule {
     @Singleton
     @Provides
     public IDataSource provideDataSource(Bus bus, Retrofit gateway) {
-        return BuildConfig.FLAVOR.contains("mock")? new FakeDataSource(bus) : new RestDataSource(bus, gateway);
+        return !BuildConfig.FLAVOR.contains("mock")? new FakeDataSource(bus) : new RestDataSource(bus, gateway);
     }
 
     @Singleton

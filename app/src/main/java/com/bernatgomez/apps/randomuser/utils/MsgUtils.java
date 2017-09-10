@@ -20,6 +20,6 @@ public abstract class MsgUtils {
      * @param cntxt
      */
     public static void showMsg(Context cntxt) {
-        Toast.makeText(cntxt, cntxt.getResources().getString(R.string.list_info_msg), Toast.LENGTH_LONG).show();
+        Toast.makeText(cntxt, cntxt.getResources().getString(R.string.list_info_msg), Toast.LENGTH_SHORT).show();
     }
 }

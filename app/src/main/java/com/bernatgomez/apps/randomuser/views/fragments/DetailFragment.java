@@ -93,6 +93,8 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
 
         if (TextUtils.isValidAndNotEmptyString(path)) {
             Picasso.with(this.getContext()).load(path).into(this.imgAvatar);
+        } else {
+            Picasso.with(this.getContext()).load(R.drawable.default_avatar).into(this.imgAvatar);
         }
         this.txtMail.setText(this.user.getEmail());
         this.txtGender.setText(TextUtils.capitalize(this.user.getGender()));
