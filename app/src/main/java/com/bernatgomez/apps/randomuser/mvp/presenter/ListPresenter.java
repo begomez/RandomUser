@@ -99,9 +99,18 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
     public void onSuccess(ArrayList<UserModel> data) {
         AndroidLogger.logMsg(TAG, data.toString());
 
+        //XXX: avoid repeated
+        this.cleanData(data);
+
         this.getView().hideLoading();
 
         this.getView().onRandomUsersReceived(data);
+    }
+
+    private void cleanData(ArrayList<UserModel> receivedData) {
+        for (UserModel user : DiscardedUsersHolder.getInstance().getDiscardedUsers()) {
+            receivedData.remove(user);
+        }
     }
 
     @Subscribe
