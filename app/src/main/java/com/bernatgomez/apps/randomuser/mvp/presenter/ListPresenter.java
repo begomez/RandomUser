@@ -29,7 +29,8 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
     protected IBaseUsecase usecase;
 
     @Inject
-    protected DbTransactionExecutor executor;
+    protected IExecutor executor;
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTORS

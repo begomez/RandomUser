@@ -59,5 +59,5 @@ public class User {
         this.enabled = enabled;
     }
 
-
+    //TODO: add more fields...
 }

@@ -41,7 +41,7 @@ public class GetUsersUsecaseImpl extends BaseUsecase {
 
         this.registerInBus();
 
-        this.rest.getUsers(form);
+        this.dataSource.getUsers(form);
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

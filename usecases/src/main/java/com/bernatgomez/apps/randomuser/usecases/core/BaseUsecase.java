@@ -12,7 +12,7 @@ import com.squareup.otto.Bus;
 public abstract class BaseUsecase implements IBaseUsecase {
 
     protected final Bus bus;
-    protected final IDataSource rest;
+    protected final IDataSource dataSource;
     protected boolean registered = false;
 
 
@@ -20,11 +20,11 @@ public abstract class BaseUsecase implements IBaseUsecase {
      * Constructor
      *
      * @param bus
-     * @param rest
+     * @param dataSource
      */
-    public BaseUsecase(Bus bus, IDataSource rest) {
+    public BaseUsecase(Bus bus, IDataSource dataSource) {
         this.bus = bus;
-        this.rest = rest;
+        this.dataSource = dataSource;
     }
 
     @Override

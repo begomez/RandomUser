@@ -60,6 +60,11 @@ BACKGROUND WORK
 
 The application uses AsyncTask to execute long operations away from the Android UI Thread
 
+LOOK & FEEL
+-----------
+
+Images, icons, styles and UI should be polished :)
+
 KNOWN BUGS
 ----------
 

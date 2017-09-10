@@ -169,10 +169,13 @@ public class BaseFragment extends Fragment implements IMVPBaseView {
     protected void injectDependencies() {}
 
     /**
-     * Hook for data requests to REST repos (for instance)
+     * Hook for 1st data requests to REST repos (for instance)
      */
     protected void loadData() {}
 
+    /**
+     * Hook for nth data requests to REST repos (for instance)
+     */
     protected void reloadData() {}
 
     protected void bindViews(View v) {

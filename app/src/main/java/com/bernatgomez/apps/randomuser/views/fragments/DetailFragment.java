@@ -113,7 +113,7 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
 
     private void launchEnterAnimation() {
 
-        //FIXME: not working...?
+        //TODO: check behavior
         Slide slide = new Slide(Gravity.BOTTOM);
 
         slide.addTarget(R.id.item_info_container);

@@ -27,6 +27,8 @@ public abstract class RandomUserDb extends RoomDatabase {
      */
     public abstract IRandomUserDao userDao();
 
+    //XXX: no sqlite support
+
     @Override
     protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration config) {
         return null;
