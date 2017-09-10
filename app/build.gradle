@@ -92,5 +92,4 @@ dependencies {
     compile project(':data')
     compile project(':usecases')
     compile project(":common")
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
