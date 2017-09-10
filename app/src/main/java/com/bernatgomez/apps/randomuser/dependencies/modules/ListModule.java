@@ -1,5 +1,6 @@
 package com.bernatgomez.apps.randomuser.dependencies.modules;
 
+import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;
 import com.bernatgomez.apps.randomuser.sources.interfaces.IDataSource;
 import com.bernatgomez.apps.randomuser.persist.transactions.DbTransactionExecutor;
 import com.bernatgomez.apps.randomuser.usecases.users.IGetUsersUsecase;
@@ -18,6 +19,12 @@ import dagger.Provides;
  */
 @Module
 public class ListModule {
+
+    @PerActivity
+    @Provides
+    public IExecutor provideExecutor(Bus bus) {
+        return new DbTransactionExecutor(bus);
+    }
 
     @PerActivity
     @Provides
