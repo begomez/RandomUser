@@ -4,6 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.bernatgomez.apps.randomuser"
         minSdkVersion 21
         targetSdkVersion 26
@@ -30,14 +31,17 @@ android {
 
     // avoid duplicated file
     packagingOptions {
-        exclude 'META-INF/rxjava.properties'
+        exclude "META-INF/rxjava.properties"
+        exclude "META-INF/LICENSE"
+        exclude "META-INF/INDEX.LIST"
+        exclude "cglib-license.txt"
     }
 }
 
 ext {
     espresso_version = "2.2.2"
-    support_version = "26.0.1"
-    compat_version = "26.0.1"
+    support_version = "26.0.0"
+    compat_version = "26.0.0"
     constraint_version = "1.0.2"
     butter_version = "8.8.1"
     junit_version = "4.12"
@@ -96,22 +100,27 @@ dependencies {
     // ROUNDED IMAGE
     compile "com.makeramen:roundedimageview:$round_img_version"
 
-    // TEST
+// TEST
+
+    // JVM
     testCompile "junit:junit:$junit_version"
-    androidTestCompile("com.android.support.test.espresso:espresso-core:$espresso_version", {
-        exclude group: "com.android.support', module: 'support-annotations"
-    })
 
     // Instrumentation
     androidTestCompile "com.android.support:support-annotations:$support_version"
     androidTestCompile "com.android.support.test:runner:$support_test_version"
     androidTestCompile "com.android.support.test:rules:$support_test_version"
 
-    // JVM unit tests
-    testCompile "org.mockito:mockito-all:$mockito_version"
-    testCompile "org.hamcrest:hamcrest-all:$hamcrest_version"
+    // Instrumentation
+    androidTestCompile "org.mockito:mockito-core:$mockito_version"
+    androidTestCompile "org.hamcrest:hamcrest-all:$hamcrest_version"
+
+    // JVM
     testCompile "org.powermock:powermock-module-junit4:$power_version"
     testCompile "org.powermock:powermock-api-mockito:$power_version"
+
+    // Instrumentation
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 
     // PROJECTS
     compile project(':data')
