@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 import rx.Observable;
 
 /**
- * Retrofit interface containing the methods that match the REST API published by randomuser web
+ * Retrofit interface containing the methods that match the REST API published in the randomuser website
  *
  * Created by bernatgomez on 08/09/2017.
  */

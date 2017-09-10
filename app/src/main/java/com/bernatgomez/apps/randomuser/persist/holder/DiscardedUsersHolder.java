@@ -9,7 +9,7 @@ import java.util.List;
 
 
 /**
- * Singleton holding discardedUsers users
+ * Singleton holding discarded users
 
  * Created by bernatgomez on 10/09/2017.
  */

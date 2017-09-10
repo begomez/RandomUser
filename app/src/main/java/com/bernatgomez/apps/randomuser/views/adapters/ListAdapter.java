@@ -31,7 +31,7 @@ import com.squareup.picasso.Transformation;
 
 
 /**
- * Random user adapter for data binding
+ * User adapter for user list
  *
  * Created by bernatgomez on 09/09/2017.
  */

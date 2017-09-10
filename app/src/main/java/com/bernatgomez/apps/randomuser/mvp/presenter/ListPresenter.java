@@ -1,5 +1,6 @@
 package com.bernatgomez.apps.randomuser.mvp.presenter;
 
+
 import com.bernatgomez.apps.randomuser.models.DbTransactionResult;
 import com.bernatgomez.apps.randomuser.persist.holder.DiscardedUsersHolder;
 import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;
@@ -17,10 +18,12 @@ import javax.inject.Inject;
 import com.bernatgomez.apps.randomuser.models.ErrorModel;
 import com.bernatgomez.apps.randomuser.models.UserModel;
 
+
 /**
+ * Specific presenter used in the random user list functionality
+ *
  * Created by bernatgomez on 08/09/2017.
  */
-
 public class ListPresenter extends BasePresenter<IMVPListView> {
 
     protected IBaseUsecase usecase;

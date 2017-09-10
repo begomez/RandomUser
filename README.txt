@@ -48,11 +48,17 @@ INCLUDED FUNCTIONALITIES
 - User activation/deactivation by clicking on the corresponding icon
 - User search by name
 - Data persistence
+- Animations (shared element transition)
 
 The "infinite data fetching" utility is implemented using a SwipeRefreshLayout.
 
 Both sorting and exclusion of repeated data is implemented using the RecyclerView.SortedList class from the Android SDK. This data
 stores the different criterias using a Comparator and communicates with the corresponding list adapter using a callback.
+
+BACKGROUND WORK
+---------------
+
+The application uses AsyncTask to execute long operations away from the Android UI Thread
 
 KNOWN BUGS
 ----------

@@ -31,6 +31,12 @@ public class DbTransactionExecutor implements IExecutor {
         this.bus = bus;
     }
 
+    /**
+     * Transaction execution
+     *
+     * @param cmd
+     * @param model
+     */
     @Override
     public void execute(CmdType cmd, BaseModel model) {
         AndroidLogger.logMsg(TAG, "execute(): " + cmd + " " + model);
@@ -38,7 +44,7 @@ public class DbTransactionExecutor implements IExecutor {
         switch (cmd) {
 
             case DISABLE_USER:
-                new DbTransaction(cmd).execute((UserModel) model);
+                new DbTransactionWorker(cmd).execute((UserModel) model);
                 break;
 
             default:
@@ -49,13 +55,13 @@ public class DbTransactionExecutor implements IExecutor {
     /**
      * Async task used to perform db transaction on background
      */
-    final class DbTransaction extends AsyncTask<UserModel, Void, Boolean> {
+    final class DbTransactionWorker extends AsyncTask<UserModel, Void, Boolean> {
 
         private CmdType type;
         private UserModel target;
 
 
-        public DbTransaction(CmdType type) {
+        public DbTransactionWorker(CmdType type) {
             this.type = type;
         }
 

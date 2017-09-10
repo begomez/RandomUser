@@ -12,7 +12,7 @@ import com.bernatgomez.apps.randomuser.models.UserModel;
 
 
 /**
- * Mapper to convert user api objects into user app objects
+ * Mapper to convert api users into app users
  *
  * Created by bernatgomez on 09/09/2017.
  */

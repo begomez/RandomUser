@@ -7,6 +7,7 @@ import com.bernatgomez.apps.randomuser.mvp.view.IMVPBaseView;
 
 /**
  * Common interface for presenter classes
+ * Use generics to store the MVP View
  *
  * Created by bernatgomez on 09/09/2017.
  */

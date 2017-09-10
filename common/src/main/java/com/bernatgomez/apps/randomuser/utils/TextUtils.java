@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 
 /**
- * Utils to work with string
+ * Utils to work with strings
  *
  * Created by bernatgomez on 10/09/2017.
  */

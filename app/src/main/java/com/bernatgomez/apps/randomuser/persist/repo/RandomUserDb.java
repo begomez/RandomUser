@@ -9,7 +9,7 @@ import android.arch.persistence.room.RoomDatabase;
 
 
 /**
- * Random user persistence mechanism implemented through architecture components
+ * Random user persistence mechanism implemented through architecture components (ROOM)
  *
  * Created by bernatgomez on 09/09/2017.
  */

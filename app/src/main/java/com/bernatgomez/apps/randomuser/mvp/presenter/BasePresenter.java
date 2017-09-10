@@ -7,7 +7,8 @@ import com.squareup.otto.Bus;
 
 
 /**
- * Presenter generalization containing commom operations
+ * Presenter generalization containing commom operations for presenters
+ *
  * Created by bernatgomez on 08/09/2017.
  */
 public class BasePresenter<T extends IMVPBaseView> implements IPresenter<T> {

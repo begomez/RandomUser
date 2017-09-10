@@ -12,7 +12,8 @@ import dagger.Component;
 
 
 /**
- * Usecase level component used to indicate in which classes depedency injection takes place
+ * Usecase level component (list of users) used to indicate in which classes depedency injection takes place and which elements
+ * are published
  *
  * Created by bernatgomez on 08/09/2017.
  */

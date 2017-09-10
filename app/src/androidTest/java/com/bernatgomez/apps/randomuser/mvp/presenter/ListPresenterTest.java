@@ -27,8 +27,6 @@ import static org.mockito.Mockito.verify;
 
 /**
  * Instrumentation test for ListPresenter
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ListPresenterTest {
 
@@ -36,7 +34,6 @@ public class ListPresenterTest {
 
     @Mock
     protected IMVPListView view;
-
 
     @Inject
     protected Bus bus;
