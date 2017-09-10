@@ -1,4 +1,4 @@
-package com.bernatgomez.apps.randomuser;
+package com.bernatgomez.apps.randomuser.mvp.presenter;
 
 
 import com.bernatgomez.apps.randomuser.dependencies.components.AppComponent;
@@ -7,7 +7,6 @@ import com.bernatgomez.apps.randomuser.dependencies.components.DaggerListCompone
 import com.bernatgomez.apps.randomuser.dependencies.modules.AppModule;
 import com.bernatgomez.apps.randomuser.dependencies.modules.ListModule;
 import com.bernatgomez.apps.randomuser.models.UserModel;
-import com.bernatgomez.apps.randomuser.mvp.presenter.ListPresenter;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
 import com.bernatgomez.apps.randomuser.persist.transactions.DbTransactionExecutor;
 import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;
