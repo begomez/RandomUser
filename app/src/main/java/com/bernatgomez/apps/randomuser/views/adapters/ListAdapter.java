@@ -170,7 +170,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         }
 
         public void setData(UserModel user) {
-            Picasso.with(this.itemView.getContext()).load(user.getPicture().getMedium()).transform(this.getTransformation()).into(this.imgAvatar);
+            String path = user.getPicture().getMedium();
+
+            if (TextUtils.isValidAndNotEmptyString(path)) {
+                Picasso.with(this.itemView.getContext()).load(path).transform(this.getTransformation()).into(this.imgAvatar);
+            }
 
             this.txtFullName.setText(TextUtils.capitalizeSentence(user.getName().getFullName()));
             this.txtEmail.setText(user.getEmail());

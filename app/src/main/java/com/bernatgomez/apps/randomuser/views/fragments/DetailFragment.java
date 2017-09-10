@@ -21,6 +21,8 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import com.bernatgomez.apps.randomuser.models.UserModel;
 
+import org.w3c.dom.Text;
+
 
 /**
  * Detail screen fragment containing info about random users
@@ -87,8 +89,11 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
     protected void configViews() {
         super.configViews();
 
-        Picasso.with(this.getContext()).load(this.user.getPicture().getLarge()).into(this.imgAvatar);
+        String path = this.user.getPicture().getLarge();
 
+        if (TextUtils.isValidAndNotEmptyString(path)) {
+            Picasso.with(this.getContext()).load(path).into(this.imgAvatar);
+        }
         this.txtMail.setText(this.user.getEmail());
         this.txtGender.setText(TextUtils.capitalize(this.user.getGender()));
         this.txtLocation.setText(TextUtils.capitalizeSentence(this.user.getLocation().getFullLocation()));

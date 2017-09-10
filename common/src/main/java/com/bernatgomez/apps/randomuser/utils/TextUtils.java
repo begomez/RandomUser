@@ -19,6 +19,16 @@ public abstract class TextUtils {
 
 
     /**
+     * Check whether a given string is not null and contains some text
+     *
+     * @param str
+     * @return
+     */
+    public static boolean isValidAndNotEmptyString(String str) {
+        return str != null && !str.isEmpty();
+    }
+
+    /**
      * Capitalize given sentence
      *
      * @param sentence

@@ -19,7 +19,7 @@
         android:layout_width="@dimen/item_img_side"
         android:layout_height="@dimen/item_img_side"
 
-        app:srcCompat="@android:drawable/btn_star_big_on"
+        tools:srcCompat="@android:drawable/btn_star_big_on"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,6 +29,8 @@
         android:layout_marginTop="@dimen/item_pad_horiz"
 
         android:transitionName="@string/shared_transition"
+
+        android:background="@color/colorPrimary"
         />
 
     <TextView
