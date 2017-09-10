@@ -25,7 +25,7 @@ public abstract class TextUtils {
      * @return
      */
     public static boolean isValidAndNotEmptyString(String str) {
-        return str != null && !str.isEmpty();
+        return str != null && !str.trim().isEmpty();
     }
 
     /**
@@ -66,14 +66,22 @@ public abstract class TextUtils {
 
 
         if (TextUtils.canBeCapitalized(str)) {
-            return str.substring(FIRST_CHAR, SECOND_CHAR).toUpperCase() + str.substring(SECOND_CHAR);
+            return str.trim().substring(FIRST_CHAR, SECOND_CHAR).toUpperCase() + str.substring(SECOND_CHAR);
 
         } else {
             return "";
         }
     }
 
-    private static boolean canBeCapitalized(String str) {
-        return str != null && str.length() >= 1;
+    /**
+     * Check if capitalization is possible on given string
+     *
+     * @param str
+     * @return
+     */
+    public static boolean canBeCapitalized(String str) {
+        final int MIN_LENGTH = 1;
+
+        return str != null && str.trim().length() >= MIN_LENGTH;
     }
 }
