@@ -174,6 +174,8 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
                 getUsers(false);
             }
         });
+
+        this.swipeContainer.setColorSchemeResources(R.color.colorAccent, R.color.colorAccent, R.color.colorAccent, R.color.colorAccent);
     }
 
     private void configList() {

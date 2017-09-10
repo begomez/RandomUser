@@ -174,6 +174,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
 
             if (TextUtils.isValidAndNotEmptyString(path)) {
                 Picasso.with(this.itemView.getContext()).load(path).transform(this.getTransformation()).into(this.imgAvatar);
+            } else {
+                Picasso.with(this.itemView.getContext()).load(R.drawable.default_avatar).transform(this.getTransformation()).into(this.imgAvatar);
             }
 
             this.txtFullName.setText(TextUtils.capitalizeSentence(user.getName().getFullName()));
