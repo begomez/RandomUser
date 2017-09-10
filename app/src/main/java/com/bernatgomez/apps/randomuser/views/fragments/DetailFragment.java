@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPBaseView;
+import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 import com.bernatgomez.apps.randomuser.utils.Constants;
 import com.bernatgomez.apps.randomuser.utils.TextUtils;
 import com.f2prateek.dart.InjectExtra;
@@ -90,13 +91,17 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
 
         this.txtMail.setText(this.user.getEmail());
         this.txtGender.setText(TextUtils.capitalize(this.user.getGender()));
-        this.txtLocation.setText(this.user.getLocation().getFullLocation());
-        this.txtName.setText(this.user.getName().getFullName());
+        this.txtLocation.setText(TextUtils.capitalizeSentence(this.user.getLocation().getFullLocation()));
+        this.txtName.setText(TextUtils.capitalizeSentence(this.user.getName().getFullName()));
 
         try {
             this.txtRegDate.setText(this.user.getRegistered());
 
-        } catch (Exception e) {e.printStackTrace();}
+        } catch (Exception e) {
+            AndroidLogger.logError(TAG, "configViews()", e);
+
+            e.printStackTrace();
+        }
     }
 
     private void launchEnterAnimation() {

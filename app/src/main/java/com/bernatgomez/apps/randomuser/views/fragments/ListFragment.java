@@ -24,6 +24,7 @@ import com.bernatgomez.apps.randomuser.dependencies.modules.ListModule;
 import com.bernatgomez.apps.randomuser.mvp.presenter.ListPresenter;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
+import com.bernatgomez.apps.randomuser.utils.MsgUtils;
 import com.bernatgomez.apps.randomuser.utils.Navigator;
 import com.bernatgomez.apps.randomuser.views.adapters.ListAdapter;
 
@@ -96,6 +97,12 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
         this.presenter.unregisterFromBus();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        MsgUtils.showMsg(this.getContext());
+    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // SEARCH
@@ -164,7 +171,7 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
         this.swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getUsers();
+                getUsers(false);
             }
         });
     }
@@ -181,11 +188,11 @@ public class ListFragment extends BaseFragment implements IMVPListView, ListAdap
     protected void loadData() {
         super.loadData();
 
-        this.getUsers();
+        this.getUsers(true);
     }
 
-    private void getUsers() {
-        this.presenter.getRandomUsers();
+    private void getUsers(boolean showLoading) {
+        this.presenter.getRandomUsers(showLoading);
     }
 
     @Override

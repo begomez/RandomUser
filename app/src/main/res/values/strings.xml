@@ -3,4 +3,5 @@
     <string name="search_title">Search</string>
     <string name="search_hint">Seach user...</string>
     <string name="shared_transition" translatable="false">shared_img</string>
+    <string name="list_info_msg">Swipe to refresh to fetch more data from the server</string>
 </resources>

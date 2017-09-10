@@ -48,9 +48,10 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
     /**
      * Fetch users from remote repo
      */
-    public void getRandomUsers() {
-        this.getView().showLoading();
-
+    public void getRandomUsers(boolean showLoading) {
+        if (showLoading) {
+            this.getView().showLoading();
+        }
         this.usecase.performAction();
     }
 

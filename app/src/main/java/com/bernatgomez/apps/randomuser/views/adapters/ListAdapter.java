@@ -1,5 +1,6 @@
 package com.bernatgomez.apps.randomuser.views.adapters;
 
+import android.arch.persistence.room.util.StringUtil;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.util.SortedList;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bernatgomez.apps.randomuser.R;
+import com.bernatgomez.apps.randomuser.utils.TextUtils;
 import com.bernatgomez.apps.randomuser.views.callback.ListAdapterCallBack;
 import com.bernatgomez.apps.randomuser.views.callback.ListComparator;
 import com.makeramen.roundedimageview.RoundedTransformationBuilder;
@@ -110,7 +112,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         for (int i = 0; i < this.data.size(); i++) {
             UserModel current = this.data.get(i);
 
-            if (current.getName().toString().toLowerCase().contains(query)) {
+            if (current.getName().toString().toLowerCase().contains(query.toLowerCase())) {
                 temp.add(current);
             }
         }
@@ -166,7 +168,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         public void setData(UserModel user) {
             Picasso.with(this.itemView.getContext()).load(user.getPicture().getMedium()).transform(this.getTransformation()).into(this.imgAvatar);
 
-            this.txtFullName.setText(user.getName().getFullName());
+            this.txtFullName.setText(TextUtils.capitalizeSentence(user.getName().getFullName()));
             this.txtEmail.setText(user.getEmail());
             this.txtPhone.setText(user.getPhone());
             this.imgAction.setVisibility(user.getDisabled()? View.INVISIBLE : View.VISIBLE);
