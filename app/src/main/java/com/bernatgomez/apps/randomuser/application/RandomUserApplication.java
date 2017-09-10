@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.persistence.room.Room;
 import android.os.AsyncTask;
 
+import com.bernatgomez.apps.randomuser.persist.holder.DiscardedUsersHolder;
 import com.bernatgomez.apps.randomuser.persist.holder.UserDbHolder;
 import com.bernatgomez.apps.randomuser.persist.repo.RandomUserDb;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
@@ -42,7 +43,11 @@ public class RandomUserApplication extends Application {
         AndroidLogger.logMsg(TAG, "onTerminate()");
 
         super.onTerminate();
+    }
 
+    private void freeResources() {
+        UserDbHolder.getInstance().freeResources();
+        //DiscardedUsersHolder.getInstance().freeResources();
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,6 +1,7 @@
 package com.bernatgomez.apps.randomuser.persist.holder;
 
 
+import com.bernatgomez.apps.randomuser.persist.holder.interfaces.IHolder;
 import com.bernatgomez.apps.randomuser.persist.repo.RandomUserDb;
 
 
@@ -9,7 +10,7 @@ import com.bernatgomez.apps.randomuser.persist.repo.RandomUserDb;
  *
  * Created by bernatgomez on 09/09/2017.
  */
-public class UserDbHolder {
+public class UserDbHolder implements IHolder {
     private RandomUserDb db;
     private static UserDbHolder instance;
 
@@ -34,5 +35,17 @@ public class UserDbHolder {
         }
 
         return UserDbHolder.instance;
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// IHOLDER IMPL
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void freeResources() {
+        if (this.db.isOpen()) {
+            this.db.close();
+        }
+        this.db = null;
     }
 }
