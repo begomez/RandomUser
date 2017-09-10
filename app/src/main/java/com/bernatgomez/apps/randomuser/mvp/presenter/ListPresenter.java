@@ -4,7 +4,7 @@ import com.bernatgomez.apps.randomuser.models.DbTransactionResult;
 import com.bernatgomez.apps.randomuser.persist.holder.DiscardedUsersHolder;
 import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;
 import com.bernatgomez.apps.randomuser.persist.transactions.DbTransactionExecutor;
-import com.bernatgomez.apps.randomuser.usecases.users.IGetUsersUsecase;
+import com.bernatgomez.apps.randomuser.usecases.core.IBaseUsecase;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 import com.squareup.otto.Bus;
@@ -23,7 +23,7 @@ import com.bernatgomez.apps.randomuser.models.UserModel;
 
 public class ListPresenter extends BasePresenter<IMVPListView> {
 
-    protected IGetUsersUsecase usecase;
+    protected IBaseUsecase usecase;
 
     @Inject
     protected DbTransactionExecutor executor;
@@ -33,7 +33,7 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Inject
-    public ListPresenter(Bus bus, IGetUsersUsecase usecase, DbTransactionExecutor executor) {
+    public ListPresenter(Bus bus, IBaseUsecase usecase, DbTransactionExecutor executor) {
         super(bus);
 
         this.usecase = usecase;

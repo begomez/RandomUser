@@ -10,7 +10,7 @@ import com.bernatgomez.apps.randomuser.models.UserModel;
 import com.bernatgomez.apps.randomuser.mvp.view.IMVPListView;
 import com.bernatgomez.apps.randomuser.persist.transactions.DbTransactionExecutor;
 import com.bernatgomez.apps.randomuser.persist.transactions.IExecutor;
-import com.bernatgomez.apps.randomuser.usecases.users.IGetUsersUsecase;
+import com.bernatgomez.apps.randomuser.usecases.core.IBaseUsecase;
 import com.squareup.otto.Bus;
 
 import org.junit.Before;
@@ -42,7 +42,7 @@ public class ListPresenterTest {
     protected Bus bus;
 
     @Inject
-    IGetUsersUsecase usecase;
+    IBaseUsecase usecase;
 
     @Inject
     DbTransactionExecutor exec;
