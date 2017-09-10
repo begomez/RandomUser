@@ -77,6 +77,11 @@ The application defines "mock" and "prod" flavors.
 
 The "mock" flavor uses a FakeDataSource that allows local testing instead of the real data source.
 
+JAVADOC
+-------
+
+Javadoc is not included but it can be generated with the corresponding command
+
 TECHNOLOGIES
 ------------
 
