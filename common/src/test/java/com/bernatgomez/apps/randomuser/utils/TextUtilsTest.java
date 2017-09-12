@@ -14,6 +14,8 @@ public class TextUtilsTest {
 
     @Test
     public void testCanBeCapitalized() {
+
+    // 1
         String capitalizable = new String("capital");
         String expected = new String("Capital");
 
@@ -22,6 +24,7 @@ public class TextUtilsTest {
         Assert.assertTrue(expected.equals(result));
         Assert.assertEquals(expected, result);
 
+    // 2
         String notCapitalizable = new String("");
         expected = new String("");
 
@@ -35,21 +38,21 @@ public class TextUtilsTest {
     @Test
     public void testIsValidAndNotEmptyString() {
 
-        // with content
+        // 1 with content
         String strNotNull = new String("String");
 
         boolean result = TextUtils.isValidAndNotEmptyString(strNotNull);
 
         Assert.assertTrue(result);
 
-        // null
+        // 2 null
         String strNull = null;
 
         result = TextUtils.isValidAndNotEmptyString(strNull);
 
         Assert.assertFalse(result);
 
-        // empty
+        // 3 empty
         String strEmpty = new String("");
 
         result = TextUtils.isValidAndNotEmptyString(strEmpty);
@@ -66,11 +69,15 @@ public class TextUtilsTest {
 
     @Test
     public void testCapitalize() {
+
+        // fixture
         String input = new String("lower");
         String expected = new String("Lower");
 
+        // action
         String result = TextUtils.capitalize(input);
 
+        // checks
         Assert.assertEquals(expected, result);
         Assert.assertTrue(expected.equals(result));
     }

@@ -1,5 +1,9 @@
 apply plugin: 'java'
 
+ext {
+    mockito_version = "1.10.19"
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -8,6 +12,9 @@ dependencies {
 
     // JUNIT
     testCompile "junit:junit:$junit_version"
+
+    // MOCK
+    testCompile "org.mockito:mockito-core:$mockito_version"
 
     // PROJECTS
     compile project (':data')

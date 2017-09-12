@@ -88,7 +88,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         this.addElements(users);
     }
 
-    private void addElements(List<UserModel> elements) {
+    public void addElements(List<UserModel> elements) {
         this.data.addAll(elements);
 
         //XXX: not needed, sorted list callback notifies changes to the adapter
@@ -187,6 +187,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
             this.txtPhone.setText(user.getPhone());
         }
 
+        //TODO: move to image utils...
         private Transformation getTransformation() {
             return
                 new RoundedTransformationBuilder()

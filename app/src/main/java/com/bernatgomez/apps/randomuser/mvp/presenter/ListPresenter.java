@@ -12,6 +12,7 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -83,6 +84,11 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
         this.executor.execute(IExecutor.CmdType.DISABLE_USER, user);
     }
 
+    public void removeDiscardedUsers(ArrayList<UserModel> receivedData, List<UserModel> discardedUsers) {
+        for (UserModel discardedUser : discardedUsers) {
+            receivedData.remove(discardedUser);
+        }
+    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // SUBSCRIPTIONS
@@ -99,18 +105,12 @@ public class ListPresenter extends BasePresenter<IMVPListView> {
     public void onSuccess(ArrayList<UserModel> data) {
         AndroidLogger.logMsg(TAG, data.toString());
 
-        //XXX: avoid repeated
-        this.cleanData(data);
+        //XXX: avoid blacklisted
+        this.removeDiscardedUsers(data, DiscardedUsersHolder.getInstance().getDiscardedUsers());
 
         this.getView().hideLoading();
 
         this.getView().onRandomUsersReceived(data);
-    }
-
-    private void cleanData(ArrayList<UserModel> receivedData) {
-        for (UserModel user : DiscardedUsersHolder.getInstance().getDiscardedUsers()) {
-            receivedData.remove(user);
-        }
     }
 
     @Subscribe
