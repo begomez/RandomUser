@@ -15,6 +15,7 @@ import com.bernatgomez.apps.randomuser.mvp.view.IMVPBaseView;
 import com.bernatgomez.apps.randomuser.utils.AndroidLogger;
 import com.bernatgomez.apps.randomuser.utils.Constants;
 import com.bernatgomez.apps.randomuser.utils.TextUtils;
+import com.f2prateek.dart.Dart;
 import com.f2prateek.dart.InjectExtra;
 import com.squareup.picasso.Picasso;
 
@@ -72,6 +73,13 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
     }
 
     @Override
+    protected void bindExtras() {
+        super.bindExtras();
+
+        this.user = Dart.get(this.getArguments(), Constants.EXTRA_USER);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
 
@@ -89,25 +97,27 @@ public class DetailFragment extends BaseFragment implements IMVPBaseView {
     protected void configViews() {
         super.configViews();
 
-        String path = this.user.getPicture().getLarge();
+        if (this.user != null) {
+            String path = this.user.getPicture().getLarge();
 
-        if (TextUtils.isValidAndNotEmptyString(path)) {
-            Picasso.with(this.getContext()).load(path).into(this.imgAvatar);
-        } else {
-            Picasso.with(this.getContext()).load(R.drawable.default_avatar).into(this.imgAvatar);
-        }
-        this.txtMail.setText(this.user.getEmail());
-        this.txtGender.setText(TextUtils.capitalize(this.user.getGender()));
-        this.txtLocation.setText(TextUtils.capitalizeSentence(this.user.getLocation().getFullLocation()));
-        this.txtName.setText(TextUtils.capitalizeSentence(this.user.getName().getFullName()));
+            if (TextUtils.isValidAndNotEmptyString(path)) {
+                Picasso.with(this.getContext()).load(path).into(this.imgAvatar);
+            } else {
+                Picasso.with(this.getContext()).load(R.drawable.default_avatar).into(this.imgAvatar);
+            }
+            this.txtMail.setText(this.user.getEmail());
+            this.txtGender.setText(TextUtils.capitalize(this.user.getGender()));
+            this.txtLocation.setText(TextUtils.capitalizeSentence(this.user.getLocation().getFullLocation()));
+            this.txtName.setText(TextUtils.capitalizeSentence(this.user.getName().getFullName()));
 
-        try {
-            this.txtRegDate.setText(this.user.getRegistered());
+            try {
+                this.txtRegDate.setText(this.user.getRegistered());
 
-        } catch (Exception e) {
-            AndroidLogger.logError(TAG, "configViews()", e);
+            } catch (Exception e) {
+                AndroidLogger.logError(TAG, "configViews()", e);
 
-            e.printStackTrace();
+                e.printStackTrace();
+            }
         }
     }
 

@@ -8,6 +8,7 @@ import com.bernatgomez.apps.randomuser.R;
 import com.bernatgomez.apps.randomuser.utils.Constants;
 import com.bernatgomez.apps.randomuser.utils.Navigator;
 import com.bernatgomez.apps.randomuser.views.fragments.DetailFragment;
+import com.f2prateek.dart.Dart;
 import com.f2prateek.dart.InjectExtra;
 
 import com.bernatgomez.apps.randomuser.models.UserModel;
@@ -34,7 +35,14 @@ public class DetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    protected void injectExtras() {
+        super.injectExtras();
+
+        this.user = Dart.get(this.getIntent().getExtras(), Constants.EXTRA_USER);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 // ARCH
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
